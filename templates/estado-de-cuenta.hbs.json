@@ -1,0 +1,258 @@
+{
+    "socio": {
+        "socio": {
+            "Id_Cliente": 80224052,
+            "Nombre": "BELLO, PATRICIA CRISTINA",
+            "NroDoc": 18565258,
+            "Fecha_Alta": "2024-05-21T00:00:00",
+            "Id_Asociado": 14046143,
+            "Fecha_Nacimiento": "1966-11-28T00:00:00",
+            "Telefono": "351-3485533",
+            "Celular": "351-3485533",
+            "Mail": "patriciabello600@gmail.com",
+            "TipoDoc": "DNI",
+            "Fecha_Asociado": "2024-05-21T00:00:00",
+            "Fecha_Baja": null,
+            "Direccion": "ENTRE RIOS",
+            "Domicilio_Nro": "1667",
+            "Domicilio_Piso": "",
+            "Domicilio_Dpto": "  ",
+            "Localidad": "SAN VICENTE (CORDOBA-DPTO. CAPITAL)",
+            "Provincia": "Córdoba",
+            "Codpos": "5000",
+            "Id_Plan": 4,
+            "Plan_Socio": "Platino",
+            "Id_Comercializador": 2059968,
+            "Comercializador": "Fernandez Alberione, Romina Ana",
+            "Id_Filial": 14,
+            "Filial": "Administración Comercializadores",
+            "Usuario_Baja": "",
+            "Ultimo_Vto_Repositorio": "2025-01-28T00:00:00",
+            "Digito_Verificador": "2"
+        }
+    },
+    "servicios": [
+        {
+            "Nombre": "BELLO, PATRICIA CRISTINA",
+            "NroDoc": 18565258,
+            "Importe": 10390.0,
+            "Fecha_Alta": "2024-05-21T00:00:00",
+            "Parentesco": "Titular",
+            "Fecha_Fin": null,
+            "MC": "CAJA JUB. PENS. Y RET. DE CORDOBA",
+            "Comercializador": "Fernandez Alberione, Romina Ana",
+            "Id_Comer": 2059968,
+            "Importe_CS_Base": 10390.0,
+            "Ultima_Fecha_Cobro": "2024-11-12T00:00:00"
+        }
+    ],
+    "otrosServicios": [
+        {
+            "Servicio": "Adicional Plan Cuota Social",
+            "Importe": 23600.0,
+            "Fecha_Alta": "2024-06-14T00:00:00",
+            "Fecha_Fin": null,
+            "MC": "CBU",
+            "Ultima_Fecha_Cobro": "2024-06-28T00:00:00"
+        }
+    ],
+    "creditosNoAdministrados": [
+        {
+            "Id_Credito": 0,
+            "Id_Solicitud": 887289,
+            "Fecha_Prestamo": "2024-05-21T00:00:00",
+            "Linea": "MAITEN Caja de Cordoba - Tercero",
+            "Capital": 215000.0,
+            "Plazo": 24.0,
+            "ValorCuota": 40320.0,
+            "Cuotas_Pagadas": 0,
+            "Cuotas_Impagas": 0,
+            "Cuotas_A_Devengar": 17,
+            "Id_Comercializador": 2059968,
+            "Comercializador": "Fernandez Alberione, Romina Ana",
+            "Medio_Cobro_Prestamo": "",
+            "Estado": "Aceptado",
+            "Proveedor_Financiero": "MAITEN COOP.DE CRED, CONSUMO Y VIV LTDA"
+        }
+    ],
+    "creditosAdministrados": [],
+    "saldoCtaCte": -82500.0,
+    "motivosClientes": [
+        {
+            "TipoSocio": "Titular",
+            "TipoMovimiento": "Alta",
+            "Fecha": "2024-05-21T00:00:00",
+            "Motivo": "Gestión de Préstamo Amtae",
+            "Usuario": "Romina Ana Fernandez Alberione"
+        }
+    ],
+    "serviciosRepositorio": [
+        {
+            "TipoServicio": "Cuota Social",
+            "FechaVto": "2024-07-28T00:00:00",
+            "Importe": 7690.0,
+            "CobImporte": 7690.0,
+            "Saldo": 0.0,
+            "TipoCS": "Titular",
+            "Adherente": "",
+            "FechaCobro": "2024-07-10T00:00:00",
+            "Mes_Servicio": "05-2024",
+            "FechaMod": null
+        },
+        {
+            "TipoServicio": "Cuota Social",
+            "FechaVto": "2024-08-28T00:00:00",
+            "Importe": 7690.0,
+            "CobImporte": 7690.0,
+            "Saldo": 0.0,
+            "TipoCS": "Titular",
+            "Adherente": "",
+            "FechaCobro": "2024-08-07T00:00:00",
+            "Mes_Servicio": "06-2024",
+            "FechaMod": null
+        },
+        {
+            "TipoServicio": "Adicional Plan Cuota Social",
+            "FechaVto": "2024-07-28T17:35:59.42",
+            "Importe": 17300.0,
+            "CobImporte": 17300.0,
+            "Saldo": 0.0,
+            "TipoCS": " ",
+            "Adherente": "",
+            "FechaCobro": "2024-06-28T00:00:00",
+            "Mes_Servicio": "06-2024",
+            "FechaMod": null
+        },
+        {
+            "TipoServicio": "Cuota Social",
+            "FechaVto": "2024-09-28T00:00:00",
+            "Importe": 9190.0,
+            "CobImporte": 9190.0,
+            "Saldo": 0.0,
+            "TipoCS": "Titular",
+            "Adherente": "",
+            "FechaCobro": "2024-09-09T00:00:00",
+            "Mes_Servicio": "07-2024",
+            "FechaMod": null
+        },
+        {
+            "TipoServicio": "Adicional Plan Cuota Social",
+            "FechaVto": "2024-08-28T00:00:00",
+            "Importe": 17300.0,
+            "CobImporte": 0.0,
+            "Saldo": 17300.0,
+            "TipoCS": " ",
+            "Adherente": "",
+            "FechaCobro": null,
+            "Mes_Servicio": "07-2024",
+            "FechaMod": null
+        },
+        {
+            "TipoServicio": "Cuota Social",
+            "FechaVto": "2024-10-28T00:00:00",
+            "Importe": 9190.0,
+            "CobImporte": 9190.0,
+            "Saldo": 0.0,
+            "TipoCS": "Titular",
+            "Adherente": "",
+            "FechaCobro": "2024-10-10T00:00:00",
+            "Mes_Servicio": "08-2024",
+            "FechaMod": null
+        },
+        {
+            "TipoServicio": "Adicional Plan Cuota Social",
+            "FechaVto": "2024-09-28T00:00:00",
+            "Importe": 20800.0,
+            "CobImporte": 0.0,
+            "Saldo": 20800.0,
+            "TipoCS": " ",
+            "Adherente": "",
+            "FechaCobro": null,
+            "Mes_Servicio": "08-2024",
+            "FechaMod": null
+        },
+        {
+            "TipoServicio": "Cuota Social",
+            "FechaVto": "2024-11-28T00:00:00",
+            "Importe": 10390.0,
+            "CobImporte": 10390.0,
+            "Saldo": 0.0,
+            "TipoCS": "Titular",
+            "Adherente": "",
+            "FechaCobro": "2024-11-12T00:00:00",
+            "Mes_Servicio": "09-2024",
+            "FechaMod": null
+        },
+        {
+            "TipoServicio": "Adicional Plan Cuota Social",
+            "FechaVto": "2024-10-28T00:00:00",
+            "Importe": 20800.0,
+            "CobImporte": 0.0,
+            "Saldo": 20800.0,
+            "TipoCS": " ",
+            "Adherente": "",
+            "FechaCobro": null,
+            "Mes_Servicio": "09-2024",
+            "FechaMod": null
+        },
+        {
+            "TipoServicio": "Cuota Social",
+            "FechaVto": "2024-12-28T00:00:00",
+            "Importe": 10390.0,
+            "CobImporte": 0.0,
+            "Saldo": 10390.0,
+            "TipoCS": "Titular",
+            "Adherente": "",
+            "FechaCobro": null,
+            "Mes_Servicio": "10-2024",
+            "FechaMod": null
+        },
+        {
+            "TipoServicio": "Adicional Plan Cuota Social",
+            "FechaVto": "2024-11-28T00:00:00",
+            "Importe": 23600.0,
+            "CobImporte": 0.0,
+            "Saldo": 23600.0,
+            "TipoCS": " ",
+            "Adherente": "",
+            "FechaCobro": null,
+            "Mes_Servicio": "10-2024",
+            "FechaMod": null
+        },
+        {
+            "TipoServicio": "Cuota Social",
+            "FechaVto": "2025-01-28T00:00:00",
+            "Importe": 10390.0,
+            "CobImporte": 0.0,
+            "Saldo": 10390.0,
+            "TipoCS": "Titular",
+            "Adherente": "",
+            "FechaCobro": null,
+            "Mes_Servicio": "11-2024",
+            "FechaMod": null
+        },
+        {
+            "TipoServicio": "Adicional Plan Cuota Social",
+            "FechaVto": "2024-12-28T00:00:00",
+            "Importe": 23600.0,
+            "CobImporte": 0.0,
+            "Saldo": 23600.0,
+            "TipoCS": " ",
+            "Adherente": "",
+            "FechaCobro": null,
+            "Mes_Servicio": "11-2024",
+            "FechaMod": null
+        }
+    ],
+    "saldosTotales": [
+        {
+            "Id": 80224052,
+            "SaldoCSTitular": 0.0,
+            "SaldoCSAdherente": 0.0,
+            "SaldoServicios": 82500.0,
+            "SaldoCreditos": 0.0,
+            "ImporteSinAplicar": 0.0
+        }
+    ],
+    "saldosAVencer": []
+}

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tu estado de cuenta</title>
+
+        <style>
+            @page {
+                size: a4 portrait;
+                margin: 10px;
+            }
+            body {
+                color: black;
+                background-color: white;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                width: 96%;
+                padding-left: 2px;
+                padding-right: 2px;
+                font-family: Arial, Helvetica, sans-serif;
+                
+
+            }
+            .content{
+                display: flex;
+                margin: auto;
+                max-width: 900px;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .heading {
+                background-color: #e93926;
+                color: white;
+                font-weight: bold;
+                text-align: center;
+                text-transform: uppercase;
+                padding: 2px;
+                margin-bottom: 2px;
+            }
+            .header{
+                background-image: url('https://testingsite.com.ar/wp-content/uploads/2025/01/header-background.png') ;
+
+                position: relative;
+                height: 180px;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-items: center;
+                gap: 12px;
+            }
+            .header-title{
+                width: 100%;
+                text-transform: uppercase;
+                background-color: #e93926d3;
+                color: white;
+                padding-block:4px;
+                text-align: center;
+            }
+            
+            .header > p {
+                position: absolute;
+                bottom:30px;
+                text-align: center;
+                font-size: 12px;
+            }
+            table,
+            th,
+            td {
+                font-size: 8px;
+                border: 1px solid #e93926;
+                border-collapse: collapse;
+            }
+            th,
+            td {
+                padding: 4px;
+            }
+            div.box-container {
+                width: 100%;
+                display: flex;
+                gap: 2%;
+                margin-top: -20px;
+                z-index: 10;
+                align-items: center;
+                justify-content: center;
+            }
+            table.box {
+                border: 1px solid #231f20;
+                background-color: white;
+                color: black;
+                margin-bottom: 8px;
+
+            }
+            table.left {
+                min-width: 46%;
+                height: 100px;
+            }
+            table.right {                
+                height: 100px;
+                min-width: 46%;
+            }
+
+            th.box-data {
+                padding-top: 4px;
+                padding-bottom: 0px;
+                padding-left: 4px;
+                text-align: left;
+                font-size: 10px;
+                border: none;
+                border-right: 1px solid;
+            }
+            th.box-data-red-title {
+                padding-top: 6px;
+                padding-bottom: 6px;
+                padding-left: 4px;
+                text-align: left;
+                font-size: 10px;
+                border: none;
+                background-color: #e93926;
+                color: white;
+            }
+            td.box-data {
+                padding-left: 4px;
+                padding-right: 4px;
+                padding-top: 0px;
+                border: none;
+                border-right: 1px solid;
+                font-size: 10px;
+            }
+            td.box-data-detail {
+                padding-left: 4px;
+                padding-right: 4px;
+                padding-top: 4px;
+                border: none;
+                font-size: 10px;
+            }
+            td.box-dni {
+                padding-left: 4px;
+                padding-right: 4px;
+                padding-top: 0px;
+                border: none;
+                font-size: 10px;
+            }
+            .services-section{
+                width: 94%;
+            }
+            table.services-table{
+                width:100%;
+                min-width:600px
+            }
+            p.legal{
+                font-size: 9px;
+            }
+            
+        </style>
+    </head>
+    <body id="content">
+        <div class="content">
+            <div class="header">
+                <div class="header-title">Estado de cuenta</div>
+               <div class="logo-container">
+                <img src="https://testingsite.com.ar/wp-content/uploads/2025/01/logo-amtae.png" alt="" width="160px">
+               </div>                
+                <p>Asociación Mutual de Trabajadores Argentinos Estatales. Matrícula INAES 745 C.F.<br>Lavalle 3155 CP1190AA | C.A.B.A - 0810-222-6823</p>
+            </div>
+            <div class="box-container">
+                <table class="box left">
+                    <tr>
+                        <th colspan="3" class="box-data">{{socio.socio.Nombre}}</th>
+                        
+                    </tr>
+                    <tr class="box-head">
+                        <td class="box-dni">
+                            {{socio.socio.TipoDoc}} {{socio.socio.NroDoc}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="" class="box-data">Plan Socio</th>
+                        <th colspan="" class="box-data">ID Asociado</th>
+                        <th colspan="" class="box-data">Importe Cuota</th>
+                    </tr>
+                    <tr>
+                        <td colspan="" class="box-data">
+                            {{socio.socio.Plan_Socio}}
+                        </td>
+                        <td colspan="" class="box-data">
+                            {{socio.socio.Id_Asociado}}
+                        </td>
+                        <td colspan="" class="box-data">IMPORTE</td>
+                    </tr>
+                    <tr>
+                        <th colspan="" class="box-data">Fecha Alta</th>
+                        <th colspan="" class="box-data">Fecha Reing.</th>
+                        <th colspan="" class="box-data">Fecha Baja</th>
+                    </tr>
+                    <tr>
+                        <td colspan="" class="box-data">
+                            {{#if socio.socio.Fecha_Alta}}{{formatDate
+                            socio.socio.Fecha_Alta}}{{/if}}
+                        </td>
+                        <td colspan="" class="box-data">
+                            {{#if socio.socio.Fecha_Reingreso}} {{formatDate
+                            socio.socio.Fecha_Reingreso}} {{/if}}
+                        </td>
+                        <td colspan="" class="box-data">
+                            {{#if socio.socio.Fecha_Baja}} {{formatDate
+                            socio.socio.Fecha_Baja}} {{/if}}
+                        </td>
+                    </tr>
+                </table>
+                <table class="box right">
+                    <tr>
+                        <th colspan="" class="box-data-red-title">Total a pagar</th>
+                        <th colspan="" class="box-data-red-title">
+                            Código de Rapipago
+                        </th>
+                    </tr>
+                    <tr>
+                        <td colspan="" class="box-data-detail">
+                            {{saldosTotales.0.SaldoServicios}}
+                        </td>
+                        <td colspan="" class="box-data-detail">
+                            {{socio.socio.Id_Cliente}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="" class="box-data-red-title">Medio de pago</th>
+                        <th colspan="" class="box-data-red-title">Vencimiento</th>
+                    </tr>
+                    <tr>
+                        <td colspan="" class="box-data-detail">
+                            {{saldosTotales.0.SaldoServicios}}
+                        </td>
+                        <td colspan="" class="box-data-detail">
+                            {{socio.socio.Id_Cliente}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="services-section">
+                <div class="heading">Deudas servicios</div>
+                <table class="services-table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <p>Tipo Servicio</p>
+                            </th>
+                            <th>
+                                <p>Tipo CS</p>
+                            </th>
+                            <th>
+                                <p>Adherente</p>
+                            </th>
+                            <th>
+                                <p>Fecha Vto.</p>
+                            </th>
+                            <th>
+                                <p>Fecha Cobro</p>
+                            </th>
+                            <th>
+                                <p>Mes Servicio*</p>
+                            </th>
+                            <th>
+                                <p>Importe Cuota</p>
+                            </th>
+                            <th>
+                                <p>Importe Cobrado</p>
+                            </th>
+                            <th>
+                                <p>Saldo</p>
+                            </th>
+                        </tr>
+                    </thead>
+                    {{#each (groupBy serviciosRepositorio 'TipoServicio') as
+                    |category| }}
+                    <tr>
+                        <td rowspan="{{category.length}}">
+                            {{category.0.TipoServicio}}
+                        </td>
+                        <td rowspan="{{category.length}}">{{category.0.TipoCS}}</td>
+
+                        <td rowspan="{{category.length}}">
+                            {{category.0.Adherente}}
+                        </td>
+                        {{#each category as |row|}}
+
+                        <td rowspan="">{{formatDate row.FechaVto}}</td>
+                        <td rowspan="">{{formatDate row.FechaCobro}}</td>
+                        <td rowspan="">{{row.Mes_Servicio}}</td>
+                        <td rowspan="">${{row.Importe}}</td>
+                        <td rowspan="">${{row.CobImporte}}</td>
+                        <td rowspan="">${{row.Saldo}}</td>
+                    </tr>
+                    {{/each}} {{/each}}
+                    <tr>
+                        <td colspan="">asd</td>
+                    </tr>
+                </table>
+                <p class="legal">* El concepto Adicional Plan Cuota Social corresponde a la diferencia para llegar al valor total de la cuota social. Se cobra por débito en su cuenta.</p>
+            </div>
+        </div>
+        <script></script>
+    </body>
+</html>

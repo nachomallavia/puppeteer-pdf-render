@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" id="doc">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tu estado de cuenta</title>
+    </head>
+    <body id="content">
+        <div>
+            <h1>Cargando factura</h1>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', async () => {
+                const selection = document.getElementById('doc');
+                const res = await fetch('/pdf', {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    method: 'POST',
+                    responseType: 'blob',
+                    body: JSON.stringify({
+                        template: 'estado-de-cuenta',
+                        message: 'Body message',
+                        test: 1,
+                        content: selection.innerHTML,
+                    }),
+                });
+
+                const file = await res.blob();
+                //Build a URL from the file
+                const fileURL = URL.createObjectURL(file);
+                //Open the URL on new Window
+                window.open(fileURL);
+            });
+        </script>
+    </body>
+</html>
