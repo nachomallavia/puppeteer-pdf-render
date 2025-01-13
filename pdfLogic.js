@@ -1,7 +1,5 @@
 const puppeteer = require('puppeteer');
 require('dotenv').config();
-const path = require('path');
-const fs = require('fs');
 
 const pdfLogic = async (req) => {
     const browser = await puppeteer.launch({
@@ -14,7 +12,7 @@ const pdfLogic = async (req) => {
         executablePath:
             process.env.NODE_ENV === 'production'
                 ? process.env.PUPPETEER_EXECUTABLE_PATH
-                : puppeteer.executablePath(),
+                : process.env.PUPPETEER_ALT_PATH,
     });
     try {
         console.log('trying to make a PDF');

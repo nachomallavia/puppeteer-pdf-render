@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config();
 const app = express();
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({
@@ -10,6 +11,7 @@ const hbs = exphbs.create({
 const path = require('path');
 const { pdfLogic } = require('./pdfLogic');
 const renderLogic = require('./renderLogic');
+const token = process.env.API_TOKEN;
 
 const bodyParser = require('body-parser');
 
@@ -37,30 +39,39 @@ app.post('/pdf', async (req, res) => {
     res.send(pdf);
 });
 
-app.get('/pdf', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 app.get('/:id', async (req, res) => {
     const id = req.params.id;
     const data = await fetch(
-        `https://sistema.mundoamtae.com/alianzas/Api/SalesForce/GetReporteEstadoCuenta/e51bd30eab2d25d9d2058a99f8472c97/${id}`
+        `https://sistema.mundoamtae.com/alianzas/Api/SalesForce/GetReporteEstadoCuenta/${token}/${id}`
     );
-    const content = await data.json();
-    res.render('estado-de-cuenta', content);
+
+    if (data.status == 200) {
+        const content = await data.json();
+        res.render('estado-de-cuenta', content);
+    } else if (data.status == 400) {
+        console.log(data);
+    }
 });
-app.get('/:id/pdf', async (req, res) => {
+app.get('/:id/pdf/', async (req, res) => {
     const id = req.params.id;
     const data = await fetch(
-        `https://sistema.mundoamtae.com/alianzas/Api/SalesForce/GetReporteEstadoCuenta/e51bd30eab2d25d9d2058a99f8472c97/${id}`
+        `https://sistema.mundoamtae.com/alianzas/Api/SalesForce/GetReporteEstadoCuenta/${token}/${id}`
     );
-    const templateName = 'estado-de-cuenta';
-    const content = await data.json();
-    const html = await renderLogic(templateName, content);
-    req.body.html = html;
-    const pdf = await pdfLogic(req);
 
-    res.set('content-type', 'application/pdf');
-    res.send(pdf);
+    if (data.status == 200) {
+        const templateName = 'estado-de-cuenta';
+        const content = await data.json();
+        const html = await renderLogic(templateName, content);
+        req.body.html = html;
+        const pdf = await pdfLogic(req);
+        res.set('content-type', 'application/pdf');
+        res.send(pdf);
+    } else if (data.status == 400) {
+        console.log(data);
+    }
 });
 
 app.listen(PORT, () => {
