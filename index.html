@@ -12,6 +12,11 @@
         <script>
             document.addEventListener('DOMContentLoaded', async () => {
                 const selection = document.getElementById('doc');
+                const params = new URLSearchParams(window.location.search);
+                const userId = params.get('userId');
+                const data = await fetch(
+                    `https://sistema.mundoamtae.com/alianzas/Api/SalesForce/GetReporteEstadoCuenta/e51bd30eab2d25d9d2058a99f8472c97/${userId}`
+                );
                 const res = await fetch('/pdf', {
                     headers: {
                         'Content-Type': 'application/json',
@@ -22,7 +27,7 @@
                         template: 'estado-de-cuenta',
                         message: 'Body message',
                         test: 1,
-                        content: selection.innerHTML,
+                        content: data,
                     }),
                 });
 

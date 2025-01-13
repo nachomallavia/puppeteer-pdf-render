@@ -30,8 +30,27 @@ module.exports = {
         return sortStore;
     },
     formatDate: function (timestamp) {
+        if (timestamp == '' || timestamp == null) {
+            return '';
+        }
         let date = new Date(timestamp);
         let simplified = new Intl.DateTimeFormat('es-AR').format(date);
+        return simplified;
+    },
+    compare: function (variableOne, comparator, variableTwo) {
+        if (eval(variableOne + comparator + variableTwo)) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+    minus: function (value) {
+        let newValue = value * -1;
+        return newValue;
+    },
+    today: function () {
+        let today = Date.now();
+        let simplified = new Intl.DateTimeFormat('es-AR').format(today);
         return simplified;
     },
 };

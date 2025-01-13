@@ -40,8 +40,27 @@ app.post('/pdf', async (req, res) => {
 app.get('/pdf', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
-app.get('/', (req, res) => {
-    res.render('estado-de-cuenta', mockData);
+app.get('/:id', async (req, res) => {
+    const id = req.params.id;
+    const data = await fetch(
+        `https://sistema.mundoamtae.com/alianzas/Api/SalesForce/GetReporteEstadoCuenta/e51bd30eab2d25d9d2058a99f8472c97/${id}`
+    );
+    const content = await data.json();
+    res.render('estado-de-cuenta', content);
+});
+app.get('/:id/pdf', async (req, res) => {
+    const id = req.params.id;
+    const data = await fetch(
+        `https://sistema.mundoamtae.com/alianzas/Api/SalesForce/GetReporteEstadoCuenta/e51bd30eab2d25d9d2058a99f8472c97/${id}`
+    );
+    const templateName = 'estado-de-cuenta';
+    const content = await data.json();
+    const html = await renderLogic(templateName, content);
+    req.body.html = html;
+    const pdf = await pdfLogic(req);
+
+    res.set('content-type', 'application/pdf');
+    res.send(pdf);
 });
 
 app.listen(PORT, () => {

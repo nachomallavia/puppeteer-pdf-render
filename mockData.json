@@ -254,5 +254,16 @@
             "ImporteSinAplicar": 0.0
         }
     ],
-    "saldosAVencer": []
+    "saldosAVencer": [],
+    "cuotasSociales": [
+        {
+            "ApellidoYNombre": "Test Adherente",
+            "NroDoc": 11111111,
+            "Parentesco": "Hijo",
+            "Fecha_Alta": "2024-06-14T00:00:00",
+            "Importe": 2500,
+            "Fecha_Baja": "",
+            "MC": "Rapipago"
+        }
+    ]
 }
