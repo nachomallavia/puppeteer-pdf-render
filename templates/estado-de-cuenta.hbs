@@ -40,8 +40,8 @@
                 font-weight: bold;
                 text-align: center;
                 text-transform: uppercase;
-                padding-top: 5px;
-                padding-bottom:2px;
+                padding-top: 8px;
+                padding-bottom:4px;
             }
             .yellow-heading {
                 background-color: #f9ec11;
@@ -57,22 +57,45 @@
                 background-image: url('https://testingsite.com.ar/wp-content/uploads/2025/01/header-background.png') ;
 
                 position: relative;
-                height: 180px;
+                height: 220px;
                 width: 100%;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-items: center;
                 gap: 12px;
+                
             }
             .header-title{
+                position: relative;
                 width: 100%;
+                height: 40px;
                 text-transform: uppercase;
-                background-color: #e93926d3;
+                padding:0px;  
                 color: white;
-                padding-block:4px;
-                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 16px;
             }
+            .header-words{
+                position: relative;
+                z-index: 12;
+                color: white;
+                font-size: 15px;
+                font-weight: bolder;
+            }
+            .background{            
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                z-index: 1;
+                 background-color: #e93926;
+                 mix-blend-mode: multiply;  
+            }
+            
+           
             
             .header > p {
                 position: absolute;
@@ -83,7 +106,7 @@
             table,
             th,
             td {
-                font-size: 8px;
+                font-size: 12px;
                 border: 1px solid #e93926;
                 border-collapse: collapse;
             }
@@ -109,11 +132,16 @@
             }
             table.left {
                 min-width: 46%;
-                height: 100px;
+                height: 130px;
+                border-spacing: 10px 0px;
             }
-            table.right {                
-                height: 100px;
+            table.right {
+             
+                height: 130px;
                 min-width: 46%;
+                border-collapse: separate;
+                border-spacing: 12px 0px;
+                padding: 20px 10px 10px 10px;
             }
 
             th.box-data {
@@ -121,19 +149,21 @@
                 padding-bottom: 0px;
                 padding-left: 4px;
                 text-align: left;
-                font-size: 10px;
+                font-size: 12px;
                 border: none;
                 border-right: 1px solid;
             }
             th.box-data-red-title {
+                max-width: 100px;
                 padding-top: 6px;
                 padding-bottom: 6px;
-                padding-left: 4px;
+                padding-left: 8px;
                 text-align: left;
-                font-size: 10px;
+                font-size: 12px;
                 border: none;
                 background-color: #e93926;
                 color: white;
+                
             }
             td.box-data {
                 padding-left: 4px;
@@ -141,35 +171,44 @@
                 padding-top: 0px;
                 border: none;
                 border-right: 1px solid;
-                font-size: 10px;
+                font-size: 12px;
             }
             td.box-data-detail {
                 padding-left: 4px;
                 padding-right: 4px;
                 padding-top: 4px;
                 border: none;
-                font-size: 10px;
+                font-size: 12px;
             }
             td.box-dni {
                 padding-left: 4px;
                 padding-right: 4px;
                 padding-top: 0px;
                 border: none;
-                font-size: 10px;
+                font-size: 12px;
             }
             .services-section{
                 width: 94%;
-                margin-bottom: 20px;
+                margin-bottom: 12px;
+            }
+            .heading{
+                margin-bottom: 6px;
             }
             .next-payments-section{
                 width: 94%;
+                margin-block: 12px;
             }
             table.next-payments{
                 width: 100%;
-                border: 1px solid #e93926;
-                margin-bottom: 10px;
+                border: 1px solid #e93926;                
+
             }
-            
+            .next-payments > thead > tr{
+                padding-block: 0px;
+            }
+            table.next-payments > thead > tr  > th {
+                padding-block: 0px;
+            } 
             table.services-table{
                 width:100%;
                 min-width:600px
@@ -178,13 +217,15 @@
                 font-size: 9px;
             }
             .total-payments{
-
-                height: 30px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-
+                background-color: #e93926;
+                color: white;
+                font-size: 12px;
+                padding-block: 0px;
             }
+
             .no-border{
                 border: none;
             }
@@ -198,39 +239,55 @@
                 border: 1px solid #e93926;
             }
             .low-block-padding{
-                padding-block:0px ;
+                padding-block:8px ;
             }
             .expired-payments-section{
-                background-color: #f9ec11;
+                width: 94%;
+                background-color:#f9ec11;
+                color: #231f20;
                 padding: 8px;
                 display: flex;
                 flex-direction: column;
                 text-align: center;
-                gap: 2px;
-                margin-block: 8px;
+                gap: 8px;
+                break-inside: avoid;
+                font-size: 15px;
+                line-height: 16px;
+            }
+            .expired-payments-section strong{
+                font-size: 18px;
+                line-height: 26px;
+
             }
             .social-cuota-section{
                 width: 94%;
-                margin-block: 8px
+                margin-block: 12px;
             }
             .other-services-section{
                 width: 94%;
-                margin-block: 8px;
+                margin-block: 12px;
+                break-inside: avoid;
             }
             .unmanaged-credit-section{
                 width: 94%;
-                margin-block: 8px;
+                margin-block: 12px;
+                break-inside: avoid;
             }
-            
+            .managed-credit-section{
+                width: 94%;
+                margin-block: 12px;
+                break-inside: avoid;
+            }
             table.social-cuota{
                 width: 100%;
             }
             .grey-text{
-                color: #6f7173;
+                color: #231f20;
             }
             .grey-border > *{
                 border: 1px solid #6f7173;
             }
+            
             .grey-background{
                 background-color: #6f7173;
                 color: white;
@@ -239,40 +296,59 @@
                 margin-top: 24px;
             }
             .details{
+                margin-block:8px;
                 width: 94%;
-                line-height: 1.25rem;
-                padding-inline:12px ;
+                line-height: 1.5rem;                
+                padding-bottom: 12px;
                 margin-block: 12px;
+                border: 1px solid #6f7173;
+                border-radius: 2px;
+                font-size: 12px;
+            }
+            .details > ul{
+                display: block;
+                padding-inline: 72px;
+                font-size: 12px;
+            }
+            .details > h3{
+                margin: 0;
+                margin-bottom: 16px;
+                background-color:#e93926;
+                color: white;
+                font-size:14px;
+                padding: 4px;
             }
             .payment-options{  
-                width: 100%;
+                width: 94%;
                 background:url('https://testingsite.com.ar/wp-content/uploads/2025/01/amtae-payment@2x-1.png');
-                min-height: 560px;
-                padding: 10px;
-                margin-bottom: 40px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                padding: 12px;
+                margin-top: 12px;
+                margin-bottom: 8px;
                 break-inside: avoid;
                 
             }
             .payment-heading{
-                padding: 16px;
+                font-size: 22px;
+                font-weight: bold;
+                padding: 8px;
                 text-align: center;
+                background-color:#e93926;
+                color: white;
+                margin-bottom: 8px;
+
             }
             .payment-grid{
-                height: 480px;
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-                grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+                grid-template-rows: 1fr 1fr 1fr 1fr;
                 gap:8px;
-                padding: 8px;              
 
             }
             .payment-grid-element{
                 background-color: rgba(255, 255, 255, 0.65);
-                padding: 8px;
                 display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                gap: 12px;                
             }
             .payment-grid-element > img {
                 align-self: center;
@@ -280,71 +356,91 @@
             .filial{
                 grid-column: 1/4;
                 grid-row: 1/2;
-
+                align-items: center;
+                padding-left: 12px;
+                gap: 12px;    
             }
             .filial > img{
                 width: 60px;
-                align-self: center;
             }
             .rapipago{
                 grid-column: 1/4;
                 grid-row:2/3;
                 flex-direction:column;
-
-
+                padding-top: 16px;
+                padding-left: 10px;
             }
             .rapipago > img{
                 width: 120px;
                 align-self: flex-start;
+                margin-bottom: -4px;
             }
             .pago-mis-cuentas{
                 grid-column: 1/4;
                 grid-row:3/4;
                 flex-direction: column;
+                padding-top: 20px;
+                padding-left: 10px;
             }
             .pago-mis-cuentas > img {
                 align-self: flex-start;
                 max-width: 140px;
+                margin-bottom: -8px;
             }
             .transferencia{
                 grid-column: 4/7;
                 grid-row:1/2;
+                padding-left: 8px;
+            }
+            .transferencia > img{
+                margin-right: 8px;
+            }
+            .transferencia > p{
+                line-height: 1.25rem;
             }
             .mercadopago{
                 grid-column:4/7;
                 grid-row:2/4;
                 flex-direction: column;
+                padding-top: 24px;
+                padding-left: 16px;
             }
             .mercadopago > img{
                 max-width: 140px;
                 align-self: flex-start;
+                margin-bottom: -6px;
+
+            }
+            .mercadopago > p{
+                line-height: 1.25rem;
             }
             .comprobante{
                 grid-column:1/7;
                 grid-row:4/5;
                 text-align: center;
+                align-items: center;
+                padding: 8px;
             }
             .contact-section{
                 width: 94%;
-                margin-block: 8px;
                 display: flex;
                 flex-direction: column;
                 text-align: center;
             }
             .doubts{
                 margin: 0;
-                margin-top: -12px;
+
                 color: #231f20;
-                font-size: 16px;
+                font-size: 14px;
             }
             .atention > p{
                 margin:0;
-                margin-top: 12px;
-
+                margin-top: 8px;
+                font-size: 14px;
             }
             .call > h2{
                 margin: 0;
-                font-size: 24px;
+                font-size: 28px;
             }
             .uppercase{
                 text-transform: uppercase;
@@ -354,22 +450,85 @@
                 align-items: center;
                 justify-content: center;
                 gap: 8px;
+                font-size: 14px;
             }
             .link-amtae{
                 text-decoration: none;
                 color: #231f20;
+                font-size: 14px;
             }
             .social-logo{
                 width: 24px;
             }
-            
-            
+            .bold{
+                font-weight: bold;
+            }
+            .centered{
+                text-align: center;
+            }
+            .expand-link{
+                text-decoration: none;
+            }
+            .expand-section{
+                position: relative;
+                margin-top: 8px;
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+                align-items: center;
+                height: 40px;
+
+            }
+            .red-background{
+                background-color:#e93926;
+                width: 100%;
+                position: absolute;
+                top: 0px;
+                height:40px;
+                border-radius: 10px;
+                color: white;
+            }
+            .expand-section > img{
+                margin-top: 8px;
+                z-index: 10;
+                max-width: 48px;
+            }
+            .expand-section > h3{
+                color: white;
+                z-index: 10;
+                display: block;
+
+            }
+            tr.no-sides :nth-child(1){
+                border-left: 0px solid blue;
+            }
+            tr.no-sides :nth-last-child(1){
+                border-right: 0px solid blue;
+            }
+            .no-sides{
+                border-left: 0px solid blue;
+                border-right: 0px solid blue;
+            }
+            .red-titles{
+                border-top: 2px solid #e93926;
+                color: #e93926;
+                padding: 0px;
+
+            }
+            .red-titles > th{
+                padding-block: 0px;
+                line-height: 0;
+            }
         </style>
+
     </head>
     <body id="content">
         <div class="content">
             <div class="header">
-                <div class="header-title">Estado de cuenta</div>
+                <div class="header-title">
+                    <p class="header-words">Estado de cuenta</p>
+                    <div class="background"></div>
+                </div>
                <div class="logo-container">
                 <img src="https://testingsite.com.ar/wp-content/uploads/2025/01/logo-amtae.png" alt="" width="160px">
                </div>                
@@ -402,7 +561,7 @@
                     </tr>
                     <tr>
                         <th colspan="" class="box-data">Fecha Alta</th>
-                        <th colspan="" class="box-data">Fecha Reing.</th>
+                        <th colspan="" class="box-data">Fecha Reingreso</th>
                         <th colspan="" class="box-data">Fecha Baja</th>
                     </tr>
                     <tr>
@@ -429,10 +588,10 @@
                     </tr>
                     <tr>
                         <td colspan="" class="box-data-detail">
-                            ${{minus saldoCtaCte}}
+                            ${{sumarSaldos saldosTotales}}
                         </td>
                         <td colspan="" class="box-data-detail">
-                            {{socio.socio.Id_Cliente}}
+                            {{socio.socio.NroDoc}}{{socio.socio.Digito_Verificador}}
                         </td>
                     </tr>
                     <tr>
@@ -441,36 +600,36 @@
                     </tr>
                     <tr>
                         <td colspan="" class="box-data-detail">
-                            {{saldosTotales.0.SaldoServicios}}
+                            {{servicios.0.MC}}
                         </td>
                         <td colspan="" class="box-data-detail">
-                            {{formatDate socio.socio.Ultimo_Vto_Repositorio}}
+                            {{today}}
                         </td>
                     </tr>
                 </table>
             </div>
             <div class="services-section">
-                <div class="heading">Deudas servicios</div>
-                <table class="services-table">
+                <div class="heading">Deuda servicios</div>
+                <table class="services-table centered no-sides">
                     <thead>
-                        <tr>
+                        <tr class="no-sides red-titles">
                             <th >
-                                <p>Tipo Servicio</p>
+                                <p>Servicio</p>
                             </th>
                             <th >
-                                <p>Tipo CS</p>
+                                <p>Tipo</p>
                             </th >
                             <th >
                                 <p>Adherente</p>
                             </th>
                             <th >
-                                <p>Fecha Vto.</p>
+                                <p>Fecha Vencimiento</p>
                             </th>
                             <th >
                                 <p>Fecha Cobro</p>
                             </th>
                             <th >
-                                <p>Mes Servicio*</p>
+                                <p>Mes Servicio</p>
                             </th>
                             <th >
                                 <p>Importe Cuota</p>
@@ -483,41 +642,57 @@
                             </th>
                         </tr>
                     </thead>
-                    {{#each (groupBy serviciosRepositorio 'TipoServicio') as
+                    {{#each (groupBy serviciosRepositorio 'TipoCS') as
                     |category| }}
-                    <tr>
-                        <td rowspan="{{category.length}}">
+
+                    <tr class="no-sides">
+                        <td rowspan="{{renderMin category.length 6}}">
                             {{category.0.TipoServicio}}
                         </td>
-                        <td rowspan="{{category.length}}">{{category.0.TipoCS}}</td>
+                        <td rowspan="{{renderMin category.length 6}}">{{category.0.TipoCS}}</td>
 
-                        <td rowspan="{{category.length}}">
+                        <td rowspan="{{renderMin category.length 6}}">
                             {{category.0.Adherente}}
                         </td>
                         {{#each category as |row|}}
+                        
+                        {{#if (compare @index '<' 6)}}
 
                         <td rowspan="">{{formatDate row.FechaVto}}</td>
                         <td rowspan="">{{formatDate row.FechaCobro}}</td>
                         <td rowspan="">{{row.Mes_Servicio}}</td>
                         <td rowspan="">${{row.Importe}}</td>
                         <td rowspan="">${{row.CobImporte}}</td>
-                        <td rowspan="">${{row.Saldo}}</td>
+                        <td rowspan="" class="no-sides">${{row.Saldo}}</td>
+                        {{/if}}
                     </tr>
+
                     {{/each}} {{/each}}
                    
                 </table>
-                <p class="legal">* El concepto Adicional Plan Cuota Social corresponde a la diferencia para llegar al valor total de la cuota social. Se cobra por débito en su cuenta.</p>
+                <a href="/{{socio.socio.Id_Cliente}}/ampliar" class="expand-link">
+                <div class="expand-section">
+                    <img src="https://testingsite.com.ar/wp-content/uploads/2025/01/lupa@2x.png" alt="">
+                    <h3> Hacé click aquí para ver tu estado de cuenta ampliado</h3>
+                    <div class="red-background"></div>
+                    
+                </div>
+                </a>
+                {{!-- <p class="legal">* El concepto Adicional Plan Cuota Social corresponde a la diferencia para llegar al valor total de la cuota social. Se cobra por débito en su cuenta.</p> --}}
             </div>
+            <div class="expired-payments-section">
+                    <p><strong>Tu saldo vencido es de ${{sumarSaldos saldosTotales}} y vence el {{today}}</strong><br>Recordá que podría haber importes en proceso de cobro, correspondientes<br> al vencimiento del período en curso.</p>
+                </div>
             <div class="next-payments-section">
                 <div class="heading">próximos vencimientos</div>
                 <table class="next-payments">
                     <thead>
                         <tr>
                             <th class="no-border red-text left-align low-block-padding">
-                                <p>CS titular</p>
+                                <p>Cuota Social Titular</p>
                             </th>
                             <th class="no-border red-text left-align low-block-padding">
-                                <p>Adherente</p>
+                                <p>Cuota Social Adherente</p>
                             </th>
                             <th class="no-border red-text left-align low-block-padding">
                                 <p>Servicios</p>
@@ -526,15 +701,15 @@
                                 <p>Créditos</p>
                             </th>
                             <th class="no-border red-text left-align low-block-padding">
-                                <p>A vencer</p>
+                                <p>Total próximos vencimientos</p>
                             </th>
                            
                         </tr>
                            
                     </thead>
-                     {{#if (compare saldosTotales.length '>' 0)}}
+                     {{#if (compare saldosAVencer.length '>' 0)}}
                                 <tr class="red-border">
-                            {{#each saldosTotales as |cliente|}}
+                            {{#each saldosAVencer as |cliente|}}
                                     <td class="no-border">
                                         ${{cliente.SaldoCSTitular}}
                                     </td>
@@ -547,14 +722,14 @@
                                     <td class="no-border">
                                         ${{cliente.SaldoCreditos}}
                                     </td>
-                                    <td class="no-border red-text">
-                                        ${{cliente.ImporteSinAplicar}}
+                                    <td class="no-border red-text bold">
+                                        ${{sumarSaldos ../saldosAVencer}}
                                     </td>
                                     
                             {{/each}}
                                 </tr>
                     {{/if}}
-                            {{#if (compare saldosTotales.length '==' 0)}}
+                            {{#if (compare saldosAVencer.length '==' 0)}}
                                  <tr class="red-border">
                                     <td class="no-border">
                                         0
@@ -574,20 +749,19 @@
                                 </tr>
                             {{/if}}
                 </table>
-                <div class="total-payments heading">
-                    <h3>Total próximos vencimientos ${{minus saldoCtaCte}}</h3>
+                <div class="total-payments centered">
+                    {{!-- <h3>Total próximos vencimientos ${{sumarSaldos saldosAVencer}}</h3> --}}
+                    <p>El importe de las cuotas a vencer puede sufrir modificaciones</p>
                 </div>
-                <div class="expired-payments-section">
-                    <p><strong>Tu saldo vencido es de ${{minus saldoCtaCte}} y vence el {{today}}</strong><br>Recordá que podría haber importes en proceso de cobro, correspondientes<br> al vencimiento del período en curso.</p>
-                </div>
+                
 
             </div>
-            {{#if (compare cuotasSociales.length '>' 0) }}
+            {{#if (compare servicios.length '>' 1) }}
             <div class="social-cuota-section">
-                <div class="yellow-heading">Cuota social adherente</div>
-                <table class="social-cuota grey-text grey-border">
+                <div class="yellow-heading grey-background">Cuota social adherente</div>
+                <table class="social-cuota grey-text centered no-sides">
                     <thead>
-                        <tr class="grey-border">
+                        <tr class="grey-border no-sides">
                             <th>Apellido y Nombre</th>
                       
                             <th>Nro Doc</th>
@@ -598,31 +772,35 @@
                       
                             <th>Importe</th>
                         
-                            <th>Fecha de Baja</th>
+                            {{!-- <th>Fecha de Baja</th> --}}
                         
                             <th>Medio de Pago</th>
                         </tr>
                     </thead>
-                    {{#each cuotasSociales as |adherente|}}
-                    <tr class="grey-border">
-                        <td>{{adherente.ApellidoYNombre}}</td>
-                        <td>{{adherente.NroDoc}}</td>
-                        <td>{{adherente.Parentesco}}</td>
-                        <td>{{formatDate adherente.Fecha_Alta}}</td>
-                        <td>{{adherente.Importe}}</td>
-                        <td>{{formatDate adherente.Fecha_Baja}}</td>
-                        <td>{{adherente.MC}}</td>
-                    </tr>
+                    {{#each servicios as |adherente|}}
+                      {{#if @first}}
+                      {{else}}
+                      
+                            <tr class="grey-border no-sides">
+                                <td>{{adherente.Nombre}}</td>
+                                <td>{{adherente.NroDoc}}</td>
+                                <td>{{adherente.Parentesco}}</td>
+                                <td>{{formatDate adherente.Fecha_Alta}}</td>
+                                <td>${{adherente.Importe}}</td>
+                                {{!-- <td>{{formatDate adherente.Fecha_Baja}}</td> --}}
+                                <td>{{adherente.MC}}</td>
+                            </tr>
+                     {{/if}}
                     {{/each}}
                 </table>
             </div>
             {{/if}}
             {{#if (compare otrosServicios.length '>' 0) }}
             <div class="other-services-section">
-                <div class="yellow-heading">Otros servicios</div>
-                <table class="social-cuota grey-text grey-border">
+                <div class="yellow-heading grey-background">servicios</div>
+                <table class="social-cuota grey-text centered no-sides">
                     <thead>
-                        <tr class="grey-border">
+                        <tr class="grey-border no-sides">
                             <th>Servicio</th>
                             <th>Importe</th>
                             <th>Fecha de Alta</th>    
@@ -631,9 +809,9 @@
                         </tr>
                     </thead>
                     {{#each otrosServicios as |servicio|}}
-                    <tr class="grey-border">
+                    <tr class="grey-border no-sides">
                         <td>{{servicio.Servicio}}</td>
-                        <td>{{servicio.Importe}}</td>
+                        <td>${{servicio.Importe}}</td>
                         <td>{{formatDate servicio.Fecha_Alta}}</td>
                         <td>{{formatDate servicio.Fecha_Fin}}</td>
                         <td>{{servicio.MC}}</td>
@@ -642,16 +820,16 @@
                 </table>
             </div>
             {{/if}}
-            {{#if (compare creditosNoAdministrados.length '>' 0) }}
-            <div class="unmanaged-credit-section">
-                <div class="yellow-heading grey-background">Créditos no administrados</div>
-                <table class="social-cuota grey-text grey-border">
+            {{#if (compare creditosAdministrados.length '>' 0) }}
+            <div class="managed-credit-section">
+                <div class="yellow-heading grey-background">Créditos administrados</div>
+                <table class="social-cuota grey-text centered no-sides">
                     <thead>
                         
-                        <tr class="grey-border">
+                        <tr class="grey-border no-sides">
                             <th>Id Crédito</th>
-                            <th>Fecha Préstamos</th>
-                            <th>Proveedor Financ.</th>    
+                            <th>Fecha Préstamo</th>
+                            <th>Proveedor Financiero</th>    
                             <th>Capital</th>
                             <th>Plazo</th>
                             <th>Valor Cuota</th>
@@ -662,8 +840,8 @@
                             <th>Estado</th>
                         </tr>
                     </thead>    
-                        {{#each creditosNoAdministrados as |credito|}}                        
-                        <tr class="grey-border">
+                        {{#each creditosAdministrados as |credito|}}                        
+                        <tr class="grey-border no-sides">
                             <td>{{credito.Id_Credito}}</td>
                             <td>{{formatDate credito.Fecha_Prestamo}}</td>
                             <td>{{credito.Proveedor_Financiero}}</td>
@@ -682,13 +860,13 @@
                 </table>
             </div>
             {{/if}}
-            {{#if (compare creditosAdministrados.length '>' 0) }}
+            {{#if (compare creditosNoAdministrados.length '>' 0) }}
             <div class="unmanaged-credit-section">
-                <div class="yellow-heading grey-background">Créditos no administrados</div>
-                <table class="social-cuota grey-text grey-border">
+                <div class="yellow-heading grey-background">Créditos No Administrados</div>
+                <table class="social-cuota grey-text centered no-sides">
                     <thead>
                         
-                        <tr class="grey-border">
+                        <tr class="grey-border no-sides">
 
                             <th>Fecha Préstamo</th>
                             <th>Proveedor Financ.</th>    
@@ -697,8 +875,8 @@
                             <th>Valor Cuota</th>
                         </tr>
                     </thead>    
-                    {{#each creditosAdministrados as |credito|}}                        
-                    <tr class="grey-border">
+                    {{#each creditosNoAdministrados as |credito|}}                        
+                    <tr class="grey-border no-sides">
                         <td>{{formatDate credito.Fecha_Prestamo}}</td>
                         <td>{{credito.Proveedor_Financiero}}</td>
                         <td>${{credito.Capital}}</td>
@@ -710,11 +888,12 @@
             </div>
             {{/if}}
             <div class="details">
+                <h3 class="centered">INFORMACIÓN ADICIONAL</h3>
                 <ul>
-                    <li>Debe contactar al proveedor financiero para cualquier información referida a operaciones de crédito con tercers.</li>
-                    <li>Recuerde que si su medio de cobro es Débito en cuenta, los descuentos pueden aparecer a nombre de AMTAE, Mutual 20 se Septiembre, Gestiones F&F; Unibrica; RGM Red Global Monetaria, Cooperativa de Vivienda y Consumo Cofincred, entre otras herramientas de cobro. Le recordamos que todos los meses debe dejar en su cuenta los fondos suficientes para realizar el débito.</li>
+                    <li>Debe contactar al proveedor financiero para cualquier información referida a operaciones de crédito con terceros.</li>
+                    <li>Recuerde que, si su medio de cobro es Débito en cuenta, los descuentos  pueden aparecer a nombre de AMTAE, Mutual 20 de Septiembre, Gestiones  F&F; Unibrica; RGM Red Global Monetaria, Cooperativa de Vivienda y  Consumo Cofincred, entre otras herramientas de cobro. Le recordamos que  todos los meses debe dejar en su cuenta los fondos suficientes para realizar  el débito.</li>
                     <li>Si su Medio de cobro es Tarjeta de Crédito puede aparecer como AMTAE o AMTAE SERVICIOS.</li>
-                    <li>Para el pago de deuda, le detallamos a continuación cómo puede ponerse al día</li>
+                    <li> Para el pago de deuda, le detallamos a continuación cómo puede ponerse al día.</li>
                 </ul>
             </div>
             <div class="payment-options">

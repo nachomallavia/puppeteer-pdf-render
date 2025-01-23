@@ -33,17 +33,30 @@
     },
     "servicios": [
         {
-            "Nombre": "BELLO, PATRICIA CRISTINA",
-            "NroDoc": 18565258,
-            "Importe": 10390.0,
-            "Fecha_Alta": "2024-05-21T00:00:00",
+            "Nombre": "TORRES, MARIA CRISTINA",
+            "NroDoc": 10354078,
+            "Importe": 20670.0,
+            "Fecha_Alta": "2017-03-22T00:00:00",
             "Parentesco": "Titular",
             "Fecha_Fin": null,
-            "MC": "CAJA JUB. PENS. Y RET. DE CORDOBA",
-            "Comercializador": "Fernandez Alberione, Romina Ana",
-            "Id_Comer": 2059968,
-            "Importe_CS_Base": 10390.0,
-            "Ultima_Fecha_Cobro": "2024-11-12T00:00:00"
+            "MC": "CBU",
+            "Comercializador": "Carrasay, Cristian Gustavo",
+            "Id_Comer": 2058990,
+            "Importe_CS_Base": 20670.0,
+            "Ultima_Fecha_Cobro": "2024-11-29T00:00:00"
+        },
+        {
+            "Nombre": "SERVIN, WALTER FELIPE",
+            "NroDoc": 24827990,
+            "Importe": 20670.0,
+            "Fecha_Alta": "2017-09-04T00:00:00",
+            "Parentesco": "Cualquier otro",
+            "Fecha_Fin": null,
+            "MC": "CBU",
+            "Comercializador": "Carrasay, Cristian Gustavo",
+            "Id_Comer": 2058990,
+            "Importe_CS_Base": 20670.0,
+            "Ultima_Fecha_Cobro": "2024-11-29T00:00:00"
         }
     ],
     "otrosServicios": [
@@ -224,8 +237,8 @@
             "Importe": 23600.0,
             "CobImporte": 0.0,
             "Saldo": 23600.0,
-            "TipoCS": " ",
-            "Adherente": "",
+            "TipoCS": "Adherente",
+            "Adherente": "José",
             "FechaCobro": null,
             "Mes_Servicio": "10-2024",
             "FechaMod": null
@@ -236,8 +249,8 @@
             "Importe": 10390.0,
             "CobImporte": 0.0,
             "Saldo": 10390.0,
-            "TipoCS": "Titular",
-            "Adherente": "",
+            "TipoCS": "Adherente",
+            "Adherente": "José",
             "FechaCobro": null,
             "Mes_Servicio": "11-2024",
             "FechaMod": null
@@ -248,8 +261,8 @@
             "Importe": 23600.0,
             "CobImporte": 0.0,
             "Saldo": 23600.0,
-            "TipoCS": " ",
-            "Adherente": "",
+            "TipoCS": "Adherente",
+            "Adherente": "José",
             "FechaCobro": null,
             "Mes_Servicio": "11-2024",
             "FechaMod": null

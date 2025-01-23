@@ -5,7 +5,27 @@ module.exports = async function (templateName, dataObject) {
     const Handlebars = require('handlebars');
     let templatePath = path.join(__dirname, 'templates', templateName) + '.hbs';
     const content = readFileSync(templatePath, { encodig: 'utf8' });
-
+    Handlebars.registerHelper('sumarSaldos', (saldos) => {
+        let total = 0;
+        if (saldos != undefined && saldos[0] != undefined) {
+            total =
+                saldos[0].SaldoCSTitular +
+                saldos[0].SaldoCSAdherente +
+                saldos[0].SaldoServicios +
+                saldos[0].SaldoCreditos;
+            if (saldos[0].ImporteSinAplicar) {
+                total -= saldos[0].ImporteSinAplicar;
+            }
+        }
+        return total;
+    });
+    Handlebars.registerHelper('renderMin', function (variableOne, variableTwo) {
+        if (variableOne < variableTwo) {
+            return variableOne;
+        } else {
+            return variableTwo;
+        }
+    });
     Handlebars.registerHelper('formatDate', (timestamp) => {
         if (timestamp == '' || timestamp == null) {
             return '';
@@ -36,6 +56,12 @@ module.exports = async function (templateName, dataObject) {
                 }
             }
         }
+        sortStore.forEach((category) => {
+            let sortedCategory = category.sort((a, b) => {
+                return new Date(b.FechaVto) - new Date(a.FechaVto);
+            });
+            return sortedCategory;
+        });
 
         return sortStore;
     });

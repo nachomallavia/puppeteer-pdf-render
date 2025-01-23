@@ -28,6 +28,12 @@ module.exports = {
                 }
             }
         }
+        sortStore.forEach((category) => {
+            let sortedCategory = category.sort((a, b) => {
+                return new Date(b.FechaVto) - new Date(a.FechaVto);
+            });
+            return sortedCategory;
+        });
 
         return sortStore;
     },
@@ -54,5 +60,26 @@ module.exports = {
         let today = Date.now();
         let simplified = new Intl.DateTimeFormat('es-AR').format(today);
         return simplified;
+    },
+    sumarSaldos: function (saldos) {
+        let total = 0;
+        if (saldos != undefined && saldos[0] != undefined) {
+            total =
+                saldos[0].SaldoCSTitular +
+                saldos[0].SaldoCSAdherente +
+                saldos[0].SaldoServicios +
+                saldos[0].SaldoCreditos;
+            if (saldos[0].ImporteSinAplicar) {
+                total -= saldos[0].ImporteSinAplicar;
+            }
+        }
+        return total;
+    },
+    renderMin: function (variableOne, variableTwo) {
+        if (variableOne < variableTwo) {
+            return variableOne;
+        } else {
+            return variableTwo;
+        }
     },
 };
