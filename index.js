@@ -86,6 +86,24 @@ app.get('/:id/ampliar', async (req, res) => {
         console.log(data);
     }
 });
+app.get('/:id/ampliar/pdf/', async (req, res) => {
+    const id = req.params.id;
+    const data = await fetch(
+        `https://sistema.mundoamtae.com/alianzas/Api/SalesForce/GetReporteEstadoCuenta/${token}/${id}`
+    );
+
+    if (data.status == 200) {
+        const templateName = 'estado-de-cuenta-ampliado';
+        const content = await data.json();
+        const html = await renderLogic(templateName, content);
+        req.body.html = html;
+        const pdf = await pdfLogic(req);
+        res.set('content-type', 'application/pdf');
+        res.send(pdf);
+    } else if (data.status == 400) {
+        console.log(data);
+    }
+});
 
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
