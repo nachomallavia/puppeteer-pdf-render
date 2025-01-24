@@ -196,18 +196,24 @@
             }
             .next-payments-section{
                 width: 94%;
-                margin-block: 12px;
+                margin-block: 6px;
             }
-            table.next-payments{
+            table.next-payments-table{
                 width: 100%;
                 border: 1px solid #e93926;                
 
             }
-            .next-payments > thead > tr{
+            .next-payments-table > thead > tr{
                 padding-block: 0px;
             }
-            table.next-payments > thead > tr  > th {
+            table.next-payments-table > thead > tr  > th {
                 padding-block: 0px;
+                padding-inline: 8px;
+                line-height: 0;
+            }
+            table.next-payments-table td{
+               padding-block:8px;
+               padding-inline: 8px;
             } 
             table.services-table{
                 width:100%;
@@ -223,7 +229,8 @@
                 background-color: #e93926;
                 color: white;
                 font-size: 12px;
-                padding-block: 0px;
+                padding-block: 02px;
+                line-height: 0;
             }
 
             .no-border{
@@ -261,21 +268,21 @@
             }
             .social-cuota-section{
                 width: 94%;
-                margin-block: 12px;
+                margin-block: 6px;
             }
             .other-services-section{
                 width: 94%;
-                margin-block: 12px;
+                margin-block: 6px;
                 break-inside: avoid;
             }
             .unmanaged-credit-section{
                 width: 94%;
-                margin-block: 12px;
+                margin-block: 6px;
                 break-inside: avoid;
             }
             .managed-credit-section{
                 width: 94%;
-                margin-block: 12px;
+                margin-block: 6px;
                 break-inside: avoid;
             }
             table.social-cuota{
@@ -300,7 +307,7 @@
                 width: 94%;
                 line-height: 1.5rem;                
                 padding-bottom: 12px;
-                margin-block: 12px;
+                margin-block: 6px;
                 border: 1px solid #6f7173;
                 border-radius: 2px;
                 font-size: 12px;
@@ -517,7 +524,38 @@
             }
             .red-titles > th{
                 padding-block: 0px;
+                white-space: nowrap;
                 line-height: 0;
+    
+            }
+            th{
+                white-space: nowrap;
+            }
+            .managed-credit-table{
+                width: 100%;
+                margin-bottom: 16px;
+                border-top: 2px solid #6f7173;
+                border-bottom: 2px solid #6f7173;
+                border-spacing: 10px 200px;
+
+            }
+            .managed-credit-table thead{
+                background-color: whitesmoke;
+            }
+            .managed-credit-table th, .managed-credit-table td {
+                width: 100px;
+                max-width: 100px;
+                height: 22px;
+                padding-inline: 8px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow:ellipsis;
+                text-align: left;
+                line-height: 0px;                
+            }
+            .managed-credit-table td{
+               height: 30px;
+             
             }
         </style>
 
@@ -685,7 +723,7 @@
                 </div>
             <div class="next-payments-section">
                 <div class="heading">próximos vencimientos</div>
-                <table class="next-payments">
+                <table class="next-payments-table">
                     <thead>
                         <tr>
                             <th class="no-border red-text left-align low-block-padding">
@@ -823,41 +861,53 @@
             {{#if (compare creditosAdministrados.length '>' 0) }}
             <div class="managed-credit-section">
                 <div class="yellow-heading grey-background">Créditos administrados</div>
-                <table class="social-cuota grey-text centered no-sides">
-                    <thead>
-                        
+                {{#each creditosAdministrados as |credito|}}
+                <table class="managed-credit-table grey-text centered no-sides">
+                    <tr>
+                        <thead>                        
+                            <tr class="grey-border no-sides">
+                                <th>Id Crédito</th>
+                                <th>Fecha Préstamo</th>
+                                <th>Proveedor Financiero</th>    
+                                <th>Capital</th>
+                                <th>Plazo</th>
+                                <th>Valor Cuota</th>
+                            </tr>
+                        </thead>                      
+                    
                         <tr class="grey-border no-sides">
-                            <th>Id Crédito</th>
-                            <th>Fecha Préstamo</th>
-                            <th>Proveedor Financiero</th>    
-                            <th>Capital</th>
-                            <th>Plazo</th>
-                            <th>Valor Cuota</th>
-                            <th>Cuotas Pagadas</th>
-                            <th>Cuotas Impagas</th>
-                            <th>Cuotas a futuro</th>    
-                            <th>Medio de pago</th>
-                            <th>Estado</th>
-                        </tr>
-                    </thead>    
-                        {{#each creditosAdministrados as |credito|}}                        
-                        <tr class="grey-border no-sides">
-                            <td>{{credito.Id_Credito}}</td>
+                            <td><span>{{credito.Id_Credito}}</span></td>
                             <td>{{formatDate credito.Fecha_Prestamo}}</td>
-                            <td>{{credito.Proveedor_Financiero}}</td>
+                            <td><span>{{credito.Proveedor_Financiero}}</span></td>
                             <td>${{credito.Capital}}</td>
                             <td>{{credito.Plazo}}</td>
                             <td>${{credito.ValorCuota}}</td>
+                        </tr>
+                    </tr>
+                    <tr>    
+                        <thead>
+                            <tr class="grey-border no-sides">
+                                <th>Cuotas Pagadas</th>
+                                <th>Cuotas Impagas</th>
+                                <th>Cuotas a futuro</th>    
+                                <th>Medio de pago</th>
+                                <th>Estado</th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                        <tr class="grey-border no-sides">
                             <td>{{credito.Cuotas_Pagadas}}</td>
                             <td>{{credito.Cuotas_Impagas}}</td>
                             <td>{{credito.Cuotas_A_Devengar}}</td>
-                            <td>{{credito.Medio_Cobro_Prestamo}}</td>
+                            <td><span>{{credito.Medio_Cobro_Prestamo}}</span></td>
                             <td>{{credito.Estado}}</td> 
-                        </tr>                       
-                        {{/each}}
+                            <td> </td>
+                        </tr>
+                    </tr>                       
                     
 
                 </table>
+                {{/each}}
             </div>
             {{/if}}
             {{#if (compare creditosNoAdministrados.length '>' 0) }}
