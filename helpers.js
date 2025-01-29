@@ -73,7 +73,28 @@ module.exports = {
                 total -= saldos[0].ImporteSinAplicar;
             }
         }
+
         return total;
+    },
+    format: function (number) {
+        let rounder = new Intl.NumberFormat('es-AR', {
+            style: 'decimal',
+            maximumFractionDigits: 0,
+            minimumFractionDigits: 0,
+        });
+        let formatter = new Intl.NumberFormat('es-AR', {
+            style: 'decimal',
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+        });
+        let numString;
+        if (number % 1 == 0) {
+            numString = rounder.format(number);
+        } else {
+            numString = formatter.format(number);
+        }
+        let formated = numString.split(' ').join('');
+        return formated;
     },
     renderMin: function (variableOne, variableTwo) {
         if (variableOne < variableTwo) {

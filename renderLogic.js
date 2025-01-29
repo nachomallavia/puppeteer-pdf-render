@@ -17,6 +17,7 @@ module.exports = async function (templateName, dataObject) {
                 total -= saldos[0].ImporteSinAplicar;
             }
         }
+
         return total;
     });
     Handlebars.registerHelper('renderMin', function (variableOne, variableTwo) {
@@ -25,6 +26,26 @@ module.exports = async function (templateName, dataObject) {
         } else {
             return variableTwo;
         }
+    });
+    Handlebars.registerHelper('format', function (number) {
+        let rounder = new Intl.NumberFormat('es-AR', {
+            style: 'decimal',
+            maximumFractionDigits: 0,
+            minimumFractionDigits: 0,
+        });
+        let formatter = new Intl.NumberFormat('es-AR', {
+            style: 'decimal',
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+        });
+        let numString;
+        if (number % 1 == 0) {
+            numString = rounder.format(number);
+        } else {
+            numString = formatter.format(number);
+        }
+        let formated = numString.split(' ').join('');
+        return formated;
     });
     Handlebars.registerHelper('formatDate', (timestamp) => {
         if (timestamp == '' || timestamp == null) {

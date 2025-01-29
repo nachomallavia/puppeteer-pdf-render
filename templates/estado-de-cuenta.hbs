@@ -597,7 +597,7 @@
                         <td colspan="" class="box-data">
                             {{socio.socio.Id_Asociado}}
                         </td>
-                        <td colspan="" class="box-data">${{servicios.0.Importe_CS_Base}}</td>
+                        <td colspan="" class="box-data">${{format servicios.0.Importe_CS_Base}}</td>
                     </tr>
                     <tr>
                         <th colspan="" class="box-data">Fecha Alta</th>
@@ -628,7 +628,7 @@
                     </tr>
                     <tr>
                         <td colspan="" class="box-data-detail">
-                            ${{sumarSaldos saldosTotales}}
+                            ${{format (sumarSaldos saldosTotales)}}
                         </td>
                         <td colspan="" class="box-data-detail">
                             {{socio.socio.NroDoc}}{{socio.socio.Digito_Verificador}}
@@ -701,9 +701,9 @@
                         <td rowspan="">{{formatDate row.FechaVto}}</td>
                         <td rowspan="">{{formatDate row.FechaCobro}}</td>
                         <td rowspan="">{{row.Mes_Servicio}}</td>
-                        <td rowspan="">${{row.Importe}}</td>
-                        <td rowspan="">${{row.CobImporte}}</td>
-                        <td rowspan="" class="no-sides">${{row.Saldo}}</td>
+                        <td rowspan="">${{format row.Importe}}</td>
+                        <td rowspan="">${{format row.CobImporte}}</td>
+                        <td rowspan="" class="no-sides">${{format row.Saldo}}</td>
                         {{/if}}
                     </tr>
 
@@ -721,7 +721,7 @@
                 {{!-- <p class="legal">* El concepto Adicional Plan Cuota Social corresponde a la diferencia para llegar al valor total de la cuota social. Se cobra por débito en su cuenta.</p> --}}
             </div>
             <div class="expired-payments-section">
-                    <p><strong>Tu saldo vencido es de ${{sumarSaldos saldosTotales}} y vence el {{today}}</strong><br>Recordá que podría haber importes en proceso de cobro, correspondientes<br> al vencimiento del período en curso.</p>
+                    <p><strong>Tu saldo vencido es de ${{format (sumarSaldos saldosTotales)}} y vence el {{today}}</strong><br>Recordá que podría haber importes en proceso de cobro, correspondientes<br> al vencimiento del período en curso.</p>
                 </div>
             <div class="next-payments-section">
                 <div class="heading">próximos vencimientos</div>
@@ -751,19 +751,19 @@
                                 <tr class="red-border">
                             {{#each saldosAVencer as |cliente|}}
                                     <td class="no-border">
-                                        ${{cliente.SaldoCSTitular}}
+                                        ${{format cliente.SaldoCSTitular}}
                                     </td>
                                     <td class="no-border">
-                                        ${{cliente.SaldoCSAdherente}}
+                                        ${{format cliente.SaldoCSAdherente}}
                                     </td>
                                     <td class="no-border">
-                                        ${{cliente.SaldoServicios}}
+                                        ${{format cliente.SaldoServicios}}
                                     </td>
                                     <td class="no-border">
-                                        ${{cliente.SaldoCreditos}}
+                                        ${{format cliente.SaldoCreditos}}
                                     </td>
                                     <td class="no-border red-text bold">
-                                        ${{sumarSaldos ../saldosAVencer}}
+                                        ${{format (sumarSaldos ../saldosAVencer)}}
                                     </td>
                                     
                             {{/each}}
@@ -826,7 +826,7 @@
                                 <td>{{adherente.NroDoc}}</td>
                                 <td>{{adherente.Parentesco}}</td>
                                 <td>{{formatDate adherente.Fecha_Alta}}</td>
-                                <td>${{adherente.Importe}}</td>
+                                <td>${{format adherente.Importe}}</td>
                                 {{!-- <td>{{formatDate adherente.Fecha_Baja}}</td> --}}
                                 <td>{{adherente.MC}}</td>
                             </tr>
@@ -851,7 +851,7 @@
                     {{#each otrosServicios as |servicio|}}
                     <tr class="grey-border no-sides">
                         <td>{{servicio.Servicio}}</td>
-                        <td>${{servicio.Importe}}</td>
+                        <td>${{format servicio.Importe}}</td>
                         <td>{{formatDate servicio.Fecha_Alta}}</td>
                         <td>{{formatDate servicio.Fecha_Fin}}</td>
                         <td>{{servicio.MC}}</td>
@@ -881,9 +881,9 @@
                             <td><span>{{credito.Id_Credito}}</span></td>
                             <td>{{formatDate credito.Fecha_Prestamo}}</td>
                             <td><span>{{credito.Proveedor_Financiero}}</span></td>
-                            <td>${{credito.Capital}}</td>
+                            <td>${{format credito.Capital}}</td>
                             <td>{{credito.Plazo}}</td>
-                            <td>${{credito.ValorCuota}}</td>
+                            <td>${{format credito.ValorCuota}}</td>
                         </tr>
                     </tr>
                     <tr>    
@@ -931,9 +931,9 @@
                     <tr class="grey-border no-sides">
                         <td>{{formatDate credito.Fecha_Prestamo}}</td>
                         <td>{{credito.Proveedor_Financiero}}</td>
-                        <td>${{credito.Capital}}</td>
+                        <td>${{format credito.Capital}}</td>
                         <td>{{credito.Plazo}}</td>
-                        <td>${{credito.ValorCuota}}</td>
+                        <td>${{format credito.ValorCuota}}</td>
                     </tr>                       
                     {{/each}}
                 </table>
@@ -1009,7 +1009,9 @@
             
         </div>
         <script>
-
+            document.addEventListener('DOMContentLoaded',()=>{
+                window.print()
+            })
         </script>
     </body>
 </html>
