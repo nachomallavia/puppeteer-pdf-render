@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+
 require('dotenv').config();
 
 const pdfLogic = async (req) => {
@@ -10,7 +11,8 @@ const pdfLogic = async (req) => {
             '--no-zygote',
         ],
         executablePath:
-            process.env.NODE_ENV === 'production'
+            process.env.NODE_ENV === 'production' &&
+            process.env.NODE_SERVER === 'render'
                 ? process.env.PUPPETEER_EXECUTABLE_PATH
                 : process.env.PUPPETEER_ALT_PATH,
     });
