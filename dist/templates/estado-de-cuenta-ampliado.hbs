@@ -517,7 +517,7 @@
                 display: block;
 
             }
-        
+            
             .red-titles{
                 border-top: 2px solid #e93926;
                 color: #e93926;
@@ -686,17 +686,17 @@
                     |category| }}
 
                     <tr class="no-sides">
-                        <td rowspan="{{renderMin category.length 6}}">
+                        <td rowspan="{{category.length}}">
                             {{category.0.TipoServicio}}
                         </td>
-                        <td rowspan="{{renderMin category.length 6}}">{{category.0.TipoCS}}</td>
+                        <td rowspan="{{category.length}}">{{category.0.TipoCS}}</td>
 
-                        <td rowspan="{{renderMin category.length 6}}">
+                        <td rowspan="{{category.length}}">
                             {{category.0.Adherente}}
                         </td>
                         {{#each category as |row|}}
                         
-                        {{#if (compare @index '<' 6)}}
+                        
 
                         <td rowspan="">{{formatDate row.FechaVto}}</td>
                         <td rowspan="">{{formatDate row.FechaCobro}}</td>
@@ -704,16 +704,16 @@
                         <td rowspan="">${{format row.Importe}}</td>
                         <td rowspan="">${{format row.CobImporte}}</td>
                         <td rowspan="" class="no-sides">${{format row.Saldo}}</td>
-                        {{/if}}
+                        
                     </tr>
 
                     {{/each}} {{/each}}
                    
                 </table>
-                <a href="/{{socio.socio.Id_Cliente}}/ampliar" class="expand-link">
+                <a href="/{{socio.socio.Id_Cliente}}" class="expand-link">
                 <div class="expand-section">
                     <img src="https://testingsite.com.ar/wp-content/uploads/2025/01/lupa@2x.png" alt="">
-                    <h3> Hacé click aquí para ver tu estado de cuenta ampliado</h3>
+                    <h3> Hacé click aquí para ver el resumen de tu estado de cuenta</h3>
                     <div class="red-background"></div>
                     
                 </div>
@@ -1009,9 +1009,7 @@
             
         </div>
         <script>
-            document.addEventListener('DOMContentLoaded',()=>{
-                console.log('READY')
-            })
+
         </script>
     </body>
 </html>
