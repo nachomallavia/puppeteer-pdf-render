@@ -362,7 +362,7 @@
             .white-background{
                 background-color: rgba(255, 255, 255, 0.70);
             }
-            .white-background > img {
+            .white-background  img {
                 align-self: center;
             }
             .filial{
@@ -375,10 +375,10 @@
                 gap: 12px;
 
             }
-            .filial > img{
+            .filial img{
                 width: 50px;
             }
-            .rapipago{
+            .rapipago {
                 display:flex;
                 flex-direction:column;
                 padding-inline: 10px;
@@ -386,12 +386,12 @@
                 margin-top: 16px;
                 margin-bottom: 20px;
             }
-            .rapipago > img{
+            .rapipago img{
                 width: 90px;
                 align-self: flex-start;
                 margin-bottom: -10px;
             }
-            .pago-mis-cuentas{
+            .pago-mis-cuentas {
                 display: flex;
                 flex-direction: column;
                 flex-grow: 1;
@@ -399,7 +399,7 @@
                 padding-inline: 10px;
                 margin-bottom: 8px;
             }
-            .pago-mis-cuentas > img {
+            .pago-mis-cuentas img {
                 align-self: flex-start;
                 max-width: 140px;
                 margin-bottom: -8px;
@@ -410,28 +410,40 @@
                 gap: 12px;
                 margin-bottom: 8px;
             }
-            .transferencia > img{
+            .transferencia img{
                 margin-left: -18px;
                 width: 50px;
             }
-            .transferencia > p{
+            .transferencia p{
                 line-height: 14px
             }
             .mercadopago{
+                position: relative;
                 display: flex;
                 flex-direction: column;
                 padding-left: 8px;
                 margin-bottom: 8px;
             }
-            .mercadopago > img{
-                max-width: 100px;
+            .mercadopago img{
+                max-width: 120px;
                 align-self: flex-start;
                 margin-top: 10px;
                 margin-bottom: -6px;
-
             }
-            .mercadopago > p{
+            
+            .mercadopago p{
                 line-height: 14px;
+            }
+            #qr-mercadopago{
+                position: absolute;
+                top:0px;
+                right: 8px;
+            }
+            #qr-mercadopago > p{
+                font-size: 10px;
+                text-align: center;
+                margin-bottom: 0px;
+                line-height: 2px;
             }
             .comprobante{
                 width: 100%;
@@ -559,6 +571,7 @@
                height: 30px;
              
             }
+            
         </style>
 
     </head>
@@ -952,18 +965,24 @@
                 <div class="payment-heading">MEDIOS DE PAGO</div>
                 <div class="payment-container">
                     <div class="flex-column-container payment-left">
-                        <div class="white-background filial">
-                            <img src="https://testingsite.com.ar/wp-content/uploads/2025/01/amtae-filial@2x.png" alt="">
-                            <p>Cualquier filial de AMTAE</p>
-                        </div>
-                        <div class="white-background rapipago">
-                            <img src="https://testingsite.com.ar/wp-content/uploads/2025/01/211201035727_rapipago-logo.png" alt="">
-                            <p>Empresa AMTAE código 1439, indicar DNI, el dígito verificador y monto a pagar.</p>
-                        </div>
-                        <div class="white-background pago-mis-cuentas">
-                            <img src="https://testingsite.com.ar/wp-content/uploads/2025/01/logo-pmc@2x.png" alt="">
-                            <p>Desde un cajero Banelco o ingresando a la página pagomiscuentas.com</p>
-                        </div>
+                        <a href="https://mundoamtae.com/sucursales/">
+                            <div class="white-background filial">
+                                <img src="https://testingsite.com.ar/wp-content/uploads/2025/01/amtae-filial@2x.png" alt="">
+                                <p>Cualquier filial de AMTAE</p>
+                            </div>
+                        </a>
+                            <div class="white-background rapipago">
+                        <a href="https://www.rapipago.com.ar">
+                                <img src="https://testingsite.com.ar/wp-content/uploads/2025/01/211201035727_rapipago-logo.png" alt="">
+                        </a>
+                                <p>Empresa AMTAE código 1439, indicar DNI, el dígito verificador y monto a pagar.</p>
+                            </div>
+                            <div class="white-background pago-mis-cuentas">
+                        <a href="https://www.pagomiscuentas.com">
+                                <img src="https://testingsite.com.ar/wp-content/uploads/2025/01/logo-pmc@2x.png" alt="">
+                        </a>
+                                <p>Desde un cajero Banelco o ingresando a la página pagomiscuentas.com</p>
+                            </div>
                     </div>
                     <div class="flex-column-container payment-right">
                         <div class="white-background transferencia">
@@ -975,17 +994,24 @@
                                 Banco Galicia
                             </p>
                         </div>
-                        <div class="white-background mercadopago">
-                            <img src="https://testingsite.com.ar/wp-content/uploads/2025/01/5_logo-color-fondo-blanco-correcto@3x-15cafca6.png" alt="">
-                            <p>1.Transferir dinero<br>
-                            2. Nueva cuenta
-                            Puede transferirse a Bco Galicia<br>
-                                CBU 0070005420000017998839 <br>
-                                ó Mercado Pago CVU 0000003100073189150934<br>
-                                ALIAS SOCIO.MUNDO.AMTAE.MP<br>
-                                3. Ingresar importe a transferir
-                            </p>
-                        </div>
+                        
+                            <div class="white-background mercadopago">
+                                <a href="https://www.mercadopago.com.ar/"><img src="https://testingsite.com.ar/wp-content/uploads/2025/01/5_logo-color-fondo-blanco-correcto@3x-15cafca6.png" alt=""></a>
+                                <div id="qr-mercadopago">
+                                    <p>QR de Acceso Directo</p>
+                                   <img src="https://testingsite.com.ar/wp-content/uploads/2025/01/QR_Estado_Cta_Mkt.png" alt="" >
+                                </div>
+                                <p>1.Transferir dinero<br>
+                                2. Nueva cuenta
+                                Puede transferirse a Bco Galicia<br>
+                                    CBU 0070005420000017998839 <br>
+                                    ó Mercado Pago CVU 0000003100073189150934<br>
+                                    ALIAS SOCIO.MUNDO.AMTAE.MP<br>
+                                    3. Ingresar importe a transferir
+                                </p>
+                                
+                            </div>
+
                     </div>
                     <div class="white-background comprobante">
                         <p>Luego debe enviarnos el comprobante para la correcta imputación del pago subiendo el mismo en el siguiente link: 

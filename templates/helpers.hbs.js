@@ -32,6 +32,7 @@ module.exports = {
             });
             return sortedCategory;
         });
+
         return sortStore;
     },
     formatDate: function (timestamp) {

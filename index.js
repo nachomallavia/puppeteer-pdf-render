@@ -15,7 +15,26 @@ const renderLogic = require('./renderLogic');
 const token = process.env.API_TOKEN;
 
 const PORT = process.env.PORT || 4000;
+function filterDates(userData) {
+    let servicesArr = userData.serviciosRepositorio;
+    let data = servicesArr.filter((service) => {
+        console.log(userData);
+        let string = service.FechaVto;
+        let dateToCheck = new Date(string);
+        // console.log('Date to check is:', dateToCheck);
+        let today = new Date();
 
+        // console.log('Today is:', today);
+
+        let check =
+            dateToCheck < today ||
+            dateToCheck.getUTCMonth() == today.getUTCMonth();
+        // console.log(check);
+        return check;
+    });
+    userData.serviciosRepositorio = data;
+    return userData;
+}
 app.engine('.hbs', hbs.engine);
 app.engine('.html', hbs.engine);
 
@@ -37,7 +56,9 @@ app.get('/:id', async (req, res) => {
 
     if (data.status == 200) {
         const content = await data.json();
-        res.render('estado-de-cuenta', content);
+
+        let newData = filterDates(content);
+        res.render('estado-de-cuenta', newData);
     } else if (data.status == 400) {
         console.log(data);
     }
@@ -51,7 +72,8 @@ app.get('/:id/pdf/', async (req, res) => {
     if (data.status == 200) {
         const templateName = 'estado-de-cuenta';
         const content = await data.json();
-        const html = await renderLogic(templateName, content);
+        let newData = filterDates(content);
+        const html = await renderLogic(templateName, newData);
         req.body.html = html;
         const pdf = await pdfLogic(req);
         res.set('content-type', 'application/pdf');
@@ -68,7 +90,8 @@ app.get('/:id/ampliar', async (req, res) => {
 
     if (data.status == 200) {
         const content = await data.json();
-        res.render('estado-de-cuenta-ampliado', content);
+        let newData = filterDates(content);
+        res.render('estado-de-cuenta-ampliado', newData);
     } else if (data.status == 400) {
         console.log(data);
     }
@@ -82,7 +105,8 @@ app.get('/:id/ampliar/pdf/', async (req, res) => {
     if (data.status == 200) {
         const templateName = 'estado-de-cuenta-ampliado';
         const content = await data.json();
-        const html = await renderLogic(templateName, content);
+        let newData = filterDates(content);
+        const html = await renderLogic(templateName, newData);
         req.body.html = html;
         const pdf = await pdfLogic(req);
         res.set('content-type', 'application/pdf');
