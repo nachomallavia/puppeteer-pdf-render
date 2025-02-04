@@ -44,6 +44,9 @@ module.exports = async function (templateName, dataObject) {
         } else {
             numString = formatter.format(number);
         }
+        if (number == undefined) {
+            numString = 0;
+        }
         let formated = numString.split(' ').join('');
         return formated;
     });
