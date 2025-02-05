@@ -420,9 +420,10 @@
             .mercadopago{
                 position: relative;
                 display: flex;
-                flex-direction: column;
+                justify-content: space-between;
                 padding-left: 8px;
                 margin-bottom: 8px;
+                gap: 4px;
             }
             .mercadopago img{
                 max-width: 120px;
@@ -434,13 +435,9 @@
             .mercadopago p{
                 line-height: 14px;
             }
-            #qr-mercadopago{
-                position: absolute;
-                top:0px;
-                right: 8px;
-            }
+           
             #qr-mercadopago > img{
-                max-width: 110px;
+                max-width: 120px;
                 margin-top: 0px;
             }
             #qr-mercadopago > p{
@@ -1093,20 +1090,22 @@
                         </div>
                         
                             <div class="white-background mercadopago">
-                                <a href="https://www.mercadopago.com.ar/"><img src="https://testingsite.com.ar/wp-content/uploads/2025/01/5_logo-color-fondo-blanco-correcto@3x-15cafca6.png" alt=""></a>
+                                <div class="izq">
+                                    <a href="https://www.mercadopago.com.ar/"><img src="https://testingsite.com.ar/wp-content/uploads/2025/01/5_logo-color-fondo-blanco-correcto@3x-15cafca6.png" alt=""></a>
+                                    <p>1.Transferir dinero<br>
+                                    2. Nueva cuenta
+                                    Puede transferirse a Bco Galicia<br>
+                                        CBU 0070005420000017998839 <br>
+                                        ó Mercado Pago CVU 0000003100073189150934<br>
+                                        ALIAS SOCIO.MUNDO.AMTAE.MP<br>
+                                        3. Ingresar importe a transferir
+                                    </p>
+                                </div>
                                 <div id="qr-mercadopago">
                                     <p>QR de Acceso Directo<br> desde la aplicación</p>
                                    <img src="https://testingsite.com.ar/wp-content/uploads/2025/01/QR_Estado_Cta_Mkt.png" alt="" >
                                 </div>
-                                <p>1.Transferir dinero<br>
-                                2. Nueva cuenta
-                                Puede transferirse a Bco Galicia<br>
-                                    CBU 0070005420000017998839 <br>
-                                    ó Mercado Pago CVU 0000003100073189150934<br>
-                                    ALIAS SOCIO.MUNDO.AMTAE.MP<br>
-                                    3. Ingresar importe a transferir
-                                </p>
-                                
+                                                                
                             </div>
 
                     </div>
