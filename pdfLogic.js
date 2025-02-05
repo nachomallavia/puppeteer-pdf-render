@@ -31,6 +31,9 @@ const pdfLogic = async (req) => {
         const file = await page.pdf({
             format: 'A4',
             printBackground: true,
+            margin: {
+                top: 10,
+            },
         });
 
         await browser.close();

@@ -17,8 +17,11 @@ module.exports = async function (templateName, dataObject) {
                 total -= saldos[0].ImporteSinAplicar;
             }
         }
-
-        return total;
+        if (total > 0) {
+            return total;
+        } else {
+            return 0;
+        }
     });
     Handlebars.registerHelper('renderMin', function (variableOne, variableTwo) {
         if (variableOne < variableTwo) {
@@ -108,7 +111,7 @@ module.exports = async function (templateName, dataObject) {
     );
     Handlebars.registerHelper('minus', function (value) {
         let newValue = value * -1;
-        return newValue;
+        return newValue > 0 ? newValue : 0;
     });
     Handlebars.registerHelper('today', function () {
         let today = Date.now();

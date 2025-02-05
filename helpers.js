@@ -73,8 +73,11 @@ module.exports = {
                 total -= saldos[0].ImporteSinAplicar;
             }
         }
-
-        return total;
+        if (total > 0) {
+            return total;
+        } else {
+            return 0;
+        }
     },
     format: function (number) {
         let rounder = new Intl.NumberFormat('es-AR', {
