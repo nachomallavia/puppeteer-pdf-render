@@ -15,6 +15,7 @@ const renderLogic = require('./renderLogic');
 const token = process.env.API_TOKEN;
 
 const PORT = process.env.PORT || 4000;
+
 function filterDates(userData) {
     let servicesArr = userData.serviciosRepositorio;
     let data = servicesArr.filter((service) => {
@@ -33,6 +34,16 @@ function filterDates(userData) {
         return check;
     });
     userData.serviciosRepositorio = data;
+    return userData;
+}
+function calcularMora(userData) {
+    let creditosAdministradosMora = userData.creditosAdministrados;
+    creditosAdministradosMora.forEach((credito) => {
+        if (credito.Estado == 'Mora') {
+            credito.Mora = credito.ValorCuota * credito.Cuotas_Impagas;
+        }
+    });
+    userData.creditosAdministrados = creditosAdministradosMora;
     return userData;
 }
 app.engine('.hbs', hbs.engine);
@@ -58,6 +69,7 @@ app.get('/:id', async (req, res) => {
         const content = await data.json();
 
         let newData = filterDates(content);
+        newData = calcularMora(newData);
         res.render('estado-de-cuenta', newData);
     } else if (data.status == 400) {
         console.log(data);
@@ -73,6 +85,7 @@ app.get('/:id/pdf/', async (req, res) => {
         const templateName = 'estado-de-cuenta';
         const content = await data.json();
         let newData = filterDates(content);
+        newData = calcularMora(newData);
         const html = await renderLogic(templateName, newData);
         req.body.html = html;
         const pdf = await pdfLogic(req);
@@ -91,6 +104,7 @@ app.get('/:id/ampliar', async (req, res) => {
     if (data.status == 200) {
         const content = await data.json();
         let newData = filterDates(content);
+        newData = calcularMora(newData);
         res.render('estado-de-cuenta-ampliado', newData);
     } else if (data.status == 400) {
         console.log(data);
@@ -106,6 +120,7 @@ app.get('/:id/ampliar/pdf/', async (req, res) => {
         const templateName = 'estado-de-cuenta-ampliado';
         const content = await data.json();
         let newData = filterDates(content);
+        newData = calcularMora(newData);
         const html = await renderLogic(templateName, newData);
         req.body.html = html;
         const pdf = await pdfLogic(req);

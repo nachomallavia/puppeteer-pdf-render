@@ -1007,9 +1007,9 @@
                             <td>{{credito.Cuotas_A_Devengar}}</td>
                             <td><span>{{credito.Medio_Cobro_Prestamo}}</span></td>
                             <td>{{credito.Estado}}</td> 
-                            <td>
-                            {{#if credito.Mora_Total }}
-                                {{format credito.Mora_Total}}
+                           <td>
+                            {{#if credito.Mora }}
+                                ${{format credito.Mora}}
                                 {{else}}
                                 $0
                             {{/if}}    

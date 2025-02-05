@@ -6,6 +6,9 @@ module.exports = {
             return options.inverse(this);
         }
     },
+    multiply: function (a, b) {
+        return a * b;
+    },
     groupBy: function (arr, selectedKey, options) {
         let sortStore = [];
         let filteredCategories = [];
