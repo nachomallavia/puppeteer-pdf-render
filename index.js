@@ -69,7 +69,7 @@ app.get('/:id', async (req, res) => {
         const content = await data.json();
 
         let newData = filterDates(content);
-        newData = calcularMora(newData);
+        // newData = calcularMora(newData);
         res.render('estado-de-cuenta', newData);
     } else if (data.status == 400) {
         console.log(data);
@@ -85,7 +85,7 @@ app.get('/:id/pdf/', async (req, res) => {
         const templateName = 'estado-de-cuenta';
         const content = await data.json();
         let newData = filterDates(content);
-        newData = calcularMora(newData);
+        // newData = calcularMora(newData);
         const html = await renderLogic(templateName, newData);
         req.body.html = html;
         const pdf = await pdfLogic(req);
@@ -104,7 +104,7 @@ app.get('/:id/ampliar', async (req, res) => {
     if (data.status == 200) {
         const content = await data.json();
         let newData = filterDates(content);
-        newData = calcularMora(newData);
+        // newData = calcularMora(newData);
         res.render('estado-de-cuenta-ampliado', newData);
     } else if (data.status == 400) {
         console.log(data);
@@ -120,7 +120,7 @@ app.get('/:id/ampliar/pdf/', async (req, res) => {
         const templateName = 'estado-de-cuenta-ampliado';
         const content = await data.json();
         let newData = filterDates(content);
-        newData = calcularMora(newData);
+        // newData = calcularMora(newData);
         const html = await renderLogic(templateName, newData);
         req.body.html = html;
         const pdf = await pdfLogic(req);
