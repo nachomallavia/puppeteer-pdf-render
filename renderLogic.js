@@ -43,12 +43,12 @@ module.exports = async function (templateName, dataObject) {
         });
         let numString;
         if (number % 1 == 0) {
-            numString = rounder.format(number);
+            numString = rounder.format(number).toString();
         } else {
-            numString = formatter.format(number);
+            numString = formatter.format(number).toString();
         }
         if (number == undefined) {
-            numString = 0;
+            numString = '0';
         }
         let formated = numString.split(' ').join('');
         return formated;
