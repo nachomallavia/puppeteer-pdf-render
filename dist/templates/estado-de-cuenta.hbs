@@ -11,7 +11,9 @@
             }
             @page {
                 size: a4 portrait;
-                margin: 10px;
+                margin-left:10px;
+                margin-right: 10px;
+                
             }
             
             body {
@@ -29,6 +31,7 @@
             .content{
                 display: flex;
                 margin: auto;
+                margin-top:20px;
                 max-width: 900px;
                 flex-direction: column;
                 justify-content: center;
@@ -197,6 +200,7 @@
             .next-payments-section{
                 width: 94%;
                 margin-block: 6px;
+                break-inside: avoid;
             }
             table.next-payments-table{
                 width: 100%;
@@ -259,6 +263,7 @@
                 break-inside: avoid;
                 font-size: 15px;
                 line-height: 16px;
+                margin-bottom: 20px;
             }
             .expired-payments-section strong{
                 font-size: 18px;
@@ -306,6 +311,7 @@
                 line-height: 1.5rem;                
                 padding-bottom: 12px;
                 font-size: 12px;
+                break-inside: avoid;
             }            
             .details > h3{
                 margin: 0;                
@@ -420,9 +426,10 @@
             .mercadopago{
                 position: relative;
                 display: flex;
-                flex-direction: column;
+                justify-content: space-between;
                 padding-left: 8px;
                 margin-bottom: 8px;
+                gap: 4px;
             }
             .mercadopago img{
                 max-width: 120px;
@@ -434,13 +441,9 @@
             .mercadopago p{
                 line-height: 14px;
             }
-            #qr-mercadopago{
-                position: absolute;
-                top:0px;
-                right: 8px;
-            }
+           
             #qr-mercadopago > img{
-                max-width: 110px;
+                max-width: 120px;
                 margin-top: 0px;
             }
             #qr-mercadopago > p{
@@ -716,7 +719,7 @@
                             </th>
                         </tr>
                     </thead>
-                    {{#each (groupBy serviciosRepositorio 'TipoCS') as
+                    {{#each (groupBy serviciosRepositorio 'TipoCS' 'Adherente') as
                     |category| }}
 
                     <tr class="no-sides">
@@ -1008,8 +1011,8 @@
                             <td><span>{{credito.Medio_Cobro_Prestamo}}</span></td>
                             <td>{{credito.Estado}}</td> 
                             <td>
-                            {{#if credito.Mora_Total }}
-                                {{format credito.Mora_Total}}
+                            {{#if credito.Mora }}
+                                ${{format credito.Mora}}
                                 {{else}}
                                 $0
                             {{/if}}    
@@ -1093,20 +1096,22 @@
                         </div>
                         
                             <div class="white-background mercadopago">
-                                <a href="https://www.mercadopago.com.ar/"><img src="https://testingsite.com.ar/wp-content/uploads/2025/01/5_logo-color-fondo-blanco-correcto@3x-15cafca6.png" alt=""></a>
+                                <div class="izq">
+                                    <a href="https://www.mercadopago.com.ar/"><img src="https://testingsite.com.ar/wp-content/uploads/2025/01/5_logo-color-fondo-blanco-correcto@3x-15cafca6.png" alt=""></a>
+                                    <p>1.Transferir dinero<br>
+                                    2. Nueva cuenta
+                                    Puede transferirse a Bco Galicia<br>
+                                        CBU 0070005420000017998839 <br>
+                                        ó Mercado Pago CVU 0000003100073189150934<br>
+                                        ALIAS SOCIO.MUNDO.AMTAE.MP<br>
+                                        3. Ingresar importe a transferir
+                                    </p>
+                                </div>
                                 <div id="qr-mercadopago">
                                     <p>QR de Acceso Directo<br> desde la aplicación</p>
                                    <img src="https://testingsite.com.ar/wp-content/uploads/2025/01/QR_Estado_Cta_Mkt.png" alt="" >
                                 </div>
-                                <p>1.Transferir dinero<br>
-                                2. Nueva cuenta
-                                Puede transferirse a Bco Galicia<br>
-                                    CBU 0070005420000017998839 <br>
-                                    ó Mercado Pago CVU 0000003100073189150934<br>
-                                    ALIAS SOCIO.MUNDO.AMTAE.MP<br>
-                                    3. Ingresar importe a transferir
-                                </p>
-                                
+                                                                
                             </div>
 
                     </div>
