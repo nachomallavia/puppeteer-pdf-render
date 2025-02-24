@@ -6,33 +6,43 @@ module.exports = {
             return options.inverse(this);
         }
     },
-    groupBy: function (arr, selectedKey, options) {
+    groupBy: function (arr, selectedKey, secondKey) {
         let sortStore = [];
         let filteredCategories = [];
-        for (let i = 0; i < arr.length; i++) {
-            let currentCategory = arr[i][selectedKey];
-            let lastCategory = '';
-            if (i != 0) {
-                lastCategory = arr[i - 1][selectedKey];
+        if (arr != undefined) {
+            for (let i = 0; i < arr.length; i++) {
+                let currentCategory = arr[i][selectedKey];
+                let currentSecondary = arr[i][secondKey];
+                let lastCategory = '';
+                let lastSecondary = '';
+                if (i != 0) {
+                    lastCategory = arr[i - 1][selectedKey];
+                    lastSecondary = arr[i - 1][secondKey];
+                }
+                if (
+                    currentCategory + currentSecondary !=
+                        lastCategory + lastSecondary &&
+                    filteredCategories.indexOf(
+                        currentCategory + currentSecondary
+                    ) === -1
+                ) {
+                    filteredCategories.push(currentCategory + currentSecondary);
+                    let filteredArray = arr.filter((element) => {
+                        return (
+                            element[selectedKey] == currentCategory &&
+                            element[secondKey] == currentSecondary
+                        );
+                    });
+                    sortStore.push(filteredArray);
+                }
             }
-            if (
-                currentCategory != lastCategory &&
-                filteredCategories.indexOf(currentCategory) === -1
-            ) {
-                filteredCategories.push(currentCategory);
-                let filteredArray = arr.filter((element) => {
-                    return element[selectedKey] == currentCategory;
+            sortStore.forEach((category) => {
+                let sortedCategory = category.sort((a, b) => {
+                    return new Date(b.FechaVto) - new Date(a.FechaVto);
                 });
-                sortStore.push(filteredArray);
-            }
-        }
-        sortStore.forEach((category) => {
-            let sortedCategory = category.sort((a, b) => {
-                return new Date(b.FechaVto) - new Date(a.FechaVto);
+                return sortedCategory;
             });
-            return sortedCategory;
-        });
-
+        }
         return sortStore;
     },
     formatDate: function (timestamp) {

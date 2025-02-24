@@ -18,22 +18,24 @@ const PORT = process.env.PORT || 4000;
 
 function filterDates(userData) {
     let servicesArr = userData.serviciosRepositorio;
-    let data = servicesArr.filter((service) => {
-        console.log(userData);
-        let string = service.FechaVto;
-        let dateToCheck = new Date(string);
-        // console.log('Date to check is:', dateToCheck);
-        let today = new Date();
+    if (servicesArr != undefined) {
+        let data = servicesArr.filter((service) => {
+            console.log(userData);
+            let string = service.FechaVto;
+            let dateToCheck = new Date(string);
+            // console.log('Date to check is:', dateToCheck);
+            let today = new Date();
 
-        // console.log('Today is:', today);
+            // console.log('Today is:', today);
 
-        let check =
-            dateToCheck < today ||
-            dateToCheck.getUTCMonth() == today.getUTCMonth();
-        // console.log(check);
-        return check;
-    });
-    userData.serviciosRepositorio = data;
+            let check =
+                dateToCheck < today ||
+                dateToCheck.getUTCMonth() == today.getUTCMonth();
+            // console.log(check);
+            return check;
+        });
+        userData.serviciosRepositorio = data;
+    }
     return userData;
 }
 function calcularMora(userData) {
@@ -59,6 +61,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
+app.get('/estado', (req, res) => {
+    res.sendFile(path.join(__dirname, 'estado.html'));
+});
+app.get('/final', (req, res) => {
+    res.sendFile(path.join(__dirname, 'estado-de-cuenta.html'));
+});
 app.get('/:id', async (req, res) => {
     const id = req.params.id;
     const data = await fetch(
@@ -67,7 +75,7 @@ app.get('/:id', async (req, res) => {
 
     if (data.status == 200) {
         const content = await data.json();
-
+        console.log(content);
         let newData = filterDates(content);
         // newData = calcularMora(newData);
         res.render('estado-de-cuenta', newData);

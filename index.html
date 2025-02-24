@@ -15,7 +15,7 @@
             justify-content: center;
             align-items: center;
         }
-        .header {
+        .start-container {
             font-family: Arial, Helvetica, sans-serif;
             background-image: url('https://testingsite.com.ar/wp-content/uploads/2025/01/header-background.png');
 
@@ -29,28 +29,11 @@
             gap: 12px;
             padding-top: 24px;
         }
-        .header-title {
-            position: relative;
-            width: 100%;
-            height: 40px;
-            text-transform: uppercase;
-            padding: 0px;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-        .header > h1 {
+
+        .start-container > h1 {
             font-family: Arial, Helvetica, sans-serif;
         }
-        .header-words {
-            position: relative;
-            z-index: 12;
-            color: white;
-            font-size: 15px;
-            font-weight: bolder;
-        }
+
         #input-id-socio {
             padding: 8px;
         }
@@ -73,14 +56,14 @@
             border: 1px solid white;
             border-radius: 12px;
         }
-        .detail {
+        .interface-detail {
             max-width: 280px;
             text-align: justify;
             font-size: 16px;
         }
     </style>
     <body id="content">
-        <div class="header">
+        <div class="start-container">
             <img
                 src="https://testingsite.com.ar/wp-content/uploads/2025/01/logo-amtae.png"
                 alt=""
@@ -88,7 +71,7 @@
             />
             <h1>Consultar Estado de cuenta</h1>
             <div class="interface">
-                <p class="detail">
+                <p class="interface-detail">
                     Para acceder al estado de cuenta resumido, ingresá aquí el
                     número de afiliado correspondiente.
                 </p>
@@ -105,7 +88,7 @@
             let btn = document.getElementById('btn-consulta');
             btn.addEventListener('click', (e) => {
                 let input = document.getElementById('input-id-socio');
-                let targetUrl = `/${input.value}`;
+                let targetUrl = `/estado.html?id=${input.value}`;
                 window.open(targetUrl);
             });
         </script>
