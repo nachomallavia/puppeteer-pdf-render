@@ -92,6 +92,9 @@ module.exports = {
         return total;
     },
     format: function (number) {
+        if (number === NaN || number === undefined) {
+            number = 0;
+        }
         let rounder = new Intl.NumberFormat('es-AR', {
             style: 'decimal',
             maximumFractionDigits: 0,

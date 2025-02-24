@@ -31,6 +31,9 @@ module.exports = async function (templateName, dataObject) {
         }
     });
     Handlebars.registerHelper('format', function (number) {
+        if (number === NaN || number === undefined) {
+            number = 0;
+        }
         let rounder = new Intl.NumberFormat('es-AR', {
             style: 'decimal',
             maximumFractionDigits: 0,
