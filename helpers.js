@@ -110,6 +110,9 @@ module.exports = {
             numString = formatter.format(number);
         }
         let formated = numString.split(' ').join('');
+        if (formated === NaN) {
+            formated = 0;
+        }
         return formated;
     },
     renderMin: function (variableOne, variableTwo) {

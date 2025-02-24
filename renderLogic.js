@@ -51,6 +51,9 @@ module.exports = async function (templateName, dataObject) {
             numString = '0';
         }
         let formated = numString.split(' ').join('');
+        if (formated === NaN) {
+            formated = 0;
+        }
         return formated;
     });
     Handlebars.registerHelper('formatDate', (timestamp) => {
