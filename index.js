@@ -58,13 +58,16 @@ app.set('views', path.join(__dirname, 'templates'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
+app.get('/i', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 app.get('/estado', (req, res) => {
     res.sendFile(path.join(__dirname, 'estado.html'));
 });
 app.get('/final', (req, res) => {
+    res.sendFile(path.join(__dirname, 'estado-de-cuenta.html'));
+});
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'estado-de-cuenta.html'));
 });
 app.get('/:id', async (req, res) => {
