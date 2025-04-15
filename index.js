@@ -102,6 +102,42 @@ app.get('/:id/pdf/', async (req, res) => {
         console.log(data);
     }
 });
+app.get('/:id/resumido', async (req, res) => {
+    const id = req.params.id;
+    const data = await fetch(
+        `https://sistema.mundoamtae.com/alianzas/Api/SalesForce/GetReporteEstadoCuentaResumido/${token}/${id}`
+    );
+
+    if (data.status == 200) {
+        const content = await data.json();
+        console.log(content);
+        let newData = filterDates(content);
+        // newData = calcularMora(newData);
+        res.render('estado-de-cuenta', newData);
+    } else if (data.status == 400) {
+        console.log(data);
+    }
+});
+app.get('/:id/resumido/pdf/', async (req, res) => {
+    const id = req.params.id;
+    const data = await fetch(
+        `https://sistema.mundoamtae.com/alianzas/Api/SalesForce/GetReporteEstadoCuentaResumido/${token}/${id}`
+    );
+
+    if (data.status == 200) {
+        const templateName = 'estado-de-cuenta';
+        const content = await data.json();
+        let newData = filterDates(content);
+        // newData = calcularMora(newData);
+        const html = await renderLogic(templateName, newData);
+        req.body.html = html;
+        const pdf = await pdfLogic(req);
+        res.set('content-type', 'application/pdf');
+        res.send(pdf);
+    } else if (data.status == 400) {
+        console.log(data);
+    }
+});
 app.get('/:id/ampliar', async (req, res) => {
     const id = req.params.id;
     const data = await fetch(
