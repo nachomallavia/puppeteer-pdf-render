@@ -113,7 +113,7 @@ app.get('/:id/resumido', async (req, res) => {
         console.log(content);
         let newData = filterDates(content);
         // newData = calcularMora(newData);
-        res.render('estado-de-cuenta', newData);
+        res.render('estado-de-cuenta-resumido', newData);
     } else if (data.status == 400) {
         console.log(data);
     }
@@ -125,7 +125,7 @@ app.get('/:id/resumido/pdf/', async (req, res) => {
     );
 
     if (data.status == 200) {
-        const templateName = 'estado-de-cuenta';
+        const templateName = 'estado-de-cuenta-resumido';
         const content = await data.json();
         let newData = filterDates(content);
         // newData = calcularMora(newData);
